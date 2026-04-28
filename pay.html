@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Session — Bijoya Mukherji</title>
+  <meta name="description" content="Book a somatic healing session with Bijoya Mukherji — Nervous System Coach & Transformation Guide." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #F5F1EC;
+      --bg2:      #EDE7DE;
+      --text:     #1F3D36;
+      --soft:     #4A6B62;
+      --gold:     #C6A46C;
+      --gold-lt:  #E2C99A;
+      --rose:     #D8A7A0;
+      --white:    #FFFFFF;
+      --border:   rgba(198,164,108,0.28);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    /* ── GRAIN TEXTURE ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 0; opacity: 0.5;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--text);
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      position: relative; z-index: 1;
+    }
+    .topbar span { color: var(--gold-lt); }
+
+    /* ── HEADER ── */
+    header {
+      text-align: center;
+      padding: 48px 24px 0;
+      position: relative; z-index: 1;
+    }
+    .logo-mark {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 8px;
+    }
+    .logo-line {
+      width: 32px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    .logo-line.right {
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .logo-gem { color: var(--gold); font-size: 1rem; }
+    .header-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem; font-weight: 500;
+      color: var(--text); letter-spacing: 0.3px;
+    }
+    .header-name em { font-style: italic; color: var(--gold); }
+    .header-role {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--soft); margin-top: 6px;
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 36px 20px 80px;
+      position: relative; z-index: 1;
+    }
+
+    /* ── SECTION DIVIDER ── */
+    .ornament {
+      display: flex; align-items: center; gap: 14px;
+      margin: 32px 0 28px;
+    }
+    .ornament-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+    .ornament-icon { color: var(--gold); font-size: 0.75rem; opacity: 0.7; }
+
+    /* ── INTRO CARD ── */
+    .intro-card {
+      background: var(--text);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .intro-card::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(198,164,108,0.18) 0%, transparent 70%);
+      top: -100px; right: -60px;
+      pointer-events: none;
+    }
+    .intro-card::after {
+      content: '';
+      position: absolute;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(216,167,160,0.12) 0%, transparent 70%);
+      bottom: -60px; left: -40px;
+      pointer-events: none;
+    }
+    .intro-avatar {
+      width: 76px; height: 76px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(198,164,108,0.35), rgba(216,167,160,0.35));
+      border: 2px solid rgba(198,164,108,0.5);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 18px;
+      position: relative; z-index: 1;
+    }
+    .intro-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem; font-weight: 500; font-style: italic;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 14px;
+      position: relative; z-index: 1;
+    }
+    .intro-card p {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.75;
+      position: relative; z-index: 1;
+    }
+    .intro-stats {
+      display: flex; justify-content: center; gap: 28px;
+      margin-top: 24px; padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      position: relative; z-index: 1;
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 500;
+      color: var(--gold-lt); line-height: 1;
+    }
+    .stat-label {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: rgba(255,255,255,0.4); margin-top: 4px;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 500;
+      color: var(--text); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-title::after {
+      content: '';
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, var(--border), transparent);
+    }
+
+    /* ── SERVICE CARDS ── */
+    .service-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 8px; }
+
+    .service-card {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 4px; height: 100%;
+      background: linear-gradient(180deg, var(--gold), var(--rose));
+      transform: scaleY(0); transform-origin: top;
+      transition: transform 0.35s ease;
+      border-radius: 0 0 0 0;
+    }
+    .service-card:hover, .service-card.selected {
+      border-color: var(--gold);
+      box-shadow: 0 8px 32px rgba(198,164,108,0.15);
+      transform: translateY(-2px);
+    }
+    .service-card:hover::before, .service-card.selected::before {
+      transform: scaleY(1);
+    }
+    .service-card.selected {
+      background: linear-gradient(135deg, #FEFCF8, #FAF6EF);
+    }
+
+    /* ── CARD CLOSE BUTTON ── */
+    .card-close {
+      position: absolute; top: 12px; right: 12px;
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: rgba(198,164,108,0.12);
+      border: 1.5px solid rgba(198,164,108,0.35);
+      display: none;
+      align-items: center; justify-content: center;
+      cursor: pointer;
+      font-size: 0.7rem;
+      color: var(--gold);
+      transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
+      z-index: 10;
+      line-height: 1;
+      font-weight: 700;
+    }
+    .service-card.selected .card-close {
+      display: flex;
+    }
+    .card-close:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--white);
+      transform: scale(1.15) rotate(90deg);
+      box-shadow: 0 3px 12px rgba(198,164,108,0.4);
+    }
+
+    .service-top {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 12px;
+    }
+    .service-icon-wrap {
+      width: 44px; height: 44px; flex-shrink: 0;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(198,164,108,0.15), rgba(216,167,160,0.15));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .service-info { flex: 1; }
+    .service-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 500;
+      color: var(--text); margin-bottom: 3px;
+    }
+    .service-duration {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--soft);
+    }
+    .service-price-wrap { text-align: right; flex-shrink: 0; }
+    .service-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; font-weight: 500;
+      color: var(--text); line-height: 1;
+    }
+    .service-price sup { font-size: 0.75rem; font-family: 'DM Sans'; vertical-align: super; }
+    .service-og {
+      font-size: 11px; color: var(--soft);
+      text-decoration: line-through; margin-top: 2px;
+    }
+    .service-save {
+      font-size: 10px; font-weight: 600;
+      color: #5B8A6E; background: rgba(91,138,110,0.1);
+      padding: 2px 7px; border-radius: 8px;
+      letter-spacing: 0.5px; margin-top: 3px;
+      display: inline-block;
+    }
+    .service-desc {
+      font-size: 0.82rem;
+      color: var(--soft);
+      line-height: 1.65;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(198,164,108,0.15);
+    }
+    .service-includes {
+      display: flex; flex-wrap: wrap; gap: 7px;
+      margin-top: 12px;
+    }
+    .service-tag {
+      font-size: 10px; font-weight: 500;
+      letter-spacing: 0.8px;
+      padding: 4px 10px; border-radius: 20px;
+      background: rgba(198,164,108,0.1);
+      color: #8A6A3E;
+      border: 1px solid rgba(198,164,108,0.2);
+    }
+    .service-selector {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      border: 2px solid var(--border);
+      flex-shrink: 0; margin-top: 2px;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.25s;
+    }
+    .service-card.selected .service-selector {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+    .service-selector::after {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--white);
+      display: none;
+    }
+    .service-card.selected .service-selector::after { display: block; }
+    .popular-flag {
+      position: absolute; top: -1px; right: 18px;
+      background: linear-gradient(135deg, var(--gold), #B8926A);
+      color: var(--white);
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      padding: 4px 12px 5px;
+      border-radius: 0 0 8px 8px;
+    }
+
+    /* ── WHAT'S INCLUDED ── */
+    .included-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .included-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 16px 14px;
+      display: flex; align-items: flex-start; gap: 12px;
+    }
+    .included-icon {
+      font-size: 1.3rem; flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .included-text strong {
+      display: block;
+      font-size: 0.825rem; font-weight: 600;
+      color: var(--text); margin-bottom: 2px;
+    }
+    .included-text span {
+      font-size: 0.75rem; color: var(--soft); line-height: 1.5;
+    }
+
+    /* ── TESTIMONIAL STRIP ── */
+    .testi-strip {
+      background: linear-gradient(135deg, #EDE7DE, #E5DDD5);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 22px;
+      margin-bottom: 8px;
+    }
+    .testi-stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 10px; }
+    .testi-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-style: italic;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .testi-author {
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--soft); letter-spacing: 0.5px;
+    }
+
+    /* ── FAQ ── */
+    .faq-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--white);
+      transition: box-shadow 0.25s;
+    }
+    .faq-item.open { box-shadow: 0 4px 20px rgba(198,164,108,0.1); }
+    .faq-q {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 16px 18px;
+      cursor: pointer;
+      font-size: 0.875rem; font-weight: 500;
+      color: var(--text);
+      gap: 12px;
+      user-select: none;
+    }
+    .faq-chevron {
+      font-size: 0.7rem; color: var(--gold);
+      transition: transform 0.3s; flex-shrink: 0;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s;
+      font-size: 0.825rem; color: var(--soft); line-height: 1.75;
+      padding: 0 18px;
+    }
+    .faq-item.open .faq-a { max-height: 200px; padding: 0 18px 16px; }
+
+    /* ── PAYMENT BOX ── */
+    .pay-box {
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      margin-bottom: 16px;
+      position: sticky;
+      bottom: 20px;
+      box-shadow: 0 12px 48px rgba(31,61,54,0.1);
+    }
+    .pay-summary {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .pay-summary-label {
+      font-size: 0.8rem; color: var(--soft);
+      margin-bottom: 2px;
+    }
+    .pay-summary-service {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem; font-weight: 500;
+      color: var(--text);
+    }
+    .pay-summary-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; font-weight: 500;
+      color: var(--text);
+      text-align: right;
+    }
+    .pay-summary-price sup {
+      font-size: 0.85rem;
+      font-family: 'DM Sans';
+      vertical-align: super;
+    }
+    .pay-btn {
+      display: flex;
+      align-items: center; justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 17px 28px;
+      background: linear-gradient(135deg, var(--gold) 0%, #B8926A 100%);
+      color: var(--white);
+      border: none; border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem; font-weight: 600;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
+      text-decoration: none;
+      box-shadow: 0 6px 28px rgba(198,164,108,0.4);
+      position: relative; overflow: hidden;
+    }
+    .pay-btn::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .pay-btn:hover {
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 12px 36px rgba(198,164,108,0.5);
+    }
+    .pay-btn:hover::before { opacity: 1; }
+    .pay-btn:active { transform: scale(0.98); }
+    .pay-btn-icon { font-size: 1.1rem; }
+
+    .pay-security {
+      display: flex; align-items: center; justify-content: center;
+      gap: 18px; margin-top: 14px; flex-wrap: wrap;
+    }
+    .pay-badge {
+      display: flex; align-items: center; gap: 5px;
+      font-size: 10px; font-weight: 500;
+      color: var(--soft); letter-spacing: 0.5px;
+    }
+    .pay-badge-icon { font-size: 0.8rem; }
+
+    .pay-whatsapp {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+      font-size: 0.8rem; color: var(--soft);
+    }
+    .pay-whatsapp a {
+      color: var(--gold); font-weight: 600;
+      text-decoration: none;
+    }
+    .pay-whatsapp a:hover { text-decoration: underline; }
+
+    /* ── FOOTER ── */
+    .pay-footer {
+      text-align: center; padding: 28px 24px 40px;
+      position: relative; z-index: 1;
+    }
+    .pay-footer a {
+      font-size: 0.825rem; color: var(--soft);
+      text-decoration: none; display: inline-block;
+      margin: 0 12px;
+      transition: color 0.2s;
+    }
+    .pay-footer a:hover { color: var(--gold); }
+    .pay-footer-copy {
+      font-size: 11px; color: rgba(31,61,54,0.35);
+      margin-top: 12px; letter-spacing: 0.5px;
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .fade-in:nth-child(1) { animation-delay: 0.1s; }
+    .fade-in:nth-child(2) { animation-delay: 0.2s; }
+    .fade-in:nth-child(3) { animation-delay: 0.3s; }
+    .fade-in:nth-child(4) { animation-delay: 0.4s; }
+    .fade-in:nth-child(5) { animation-delay: 0.5s; }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed; bottom: 100px; left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--text);
+      color: var(--white);
+      font-size: 0.82rem; font-weight: 500;
+      padding: 12px 22px; border-radius: 50px;
+      box-shadow: 0 8px 32px rgba(31,61,54,0.2);
+      opacity: 0; pointer-events: none;
+      transition: all 0.35s;
+      white-space: nowrap; z-index: 999;
+    }
+    .toast.show {
+      opacity: 1; transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="topbar">✦ <span>New client spots open</span> for May 2025 ✦</div>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-mark">
+      <div class="logo-line"></div>
+      <span class="logo-gem">✦</span>
+      <div class="logo-line right"></div>
+    </div>
+    <div class="header-name">Bijoya <em>Mukherji</em></div>
+    <div class="header-role">Nervous System Coach · Somatic Practitioner</div>
+  </header>
+
+  <!-- Page -->
+  <div class="page">
+
+    <!-- Intro Card -->
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <span class="ornament-icon">✦</span>
+      <div class="ornament-line"></div>
+    </div>
+
+    <div class="intro-card fade-in">
+      <div class="intro-avatar">🌿</div>
+      <h2>"Your healing begins<br>in your body."</h2>
+      <p>I'm Bijoya — a somatic practitioner and nervous system coach. My work helps you move from survival to flow, from contraction to expansion, from anxiety to deep inner peace.</p>
+      <div class="intro-stats">
+        <div class="stat">
+          <div class="stat-num">100+</div>
+          <div class="stat-label">Clients</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4.9★</div>
+          <div class="stat-label">Rating</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3+</div>
+          <div class="stat-label">Years</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Services -->
+    <div class="ornament fade-in">
+      <div class="ornament-line"></div>
+      <span class="ornament-icon">✦</span>
+      <div class="ornament-line"></div>
+    </div>
+
+    <div class="section-title fade-in">Choose Your Session</div>
+
+    <div class="service-list fade-in" id="serviceList">
+
+      <div class="service-card" data-id="1" data-price="3500" data-name="1:1 Somatic Session">
+        <button class="card-close" aria-label="Deselect">✕</button>
+        <div class="service-top">
+          <div class="service-icon-wrap">🌿</div>
+          <div class="service-info">
+            <div class="service-name">1:1 Somatic Session</div>
+            <div class="service-duration">90 minutes · Video</div>
+          </div>
+          <div class="service-price-wrap">
+            <div class="service-price"><sup>₹</sup>3,500</div>
+          </div>
+          <div class="service-selector"></div>
+        </div>
+        <div class="service-desc">A focused session to address what's most alive — regulation, release, or clarity. We work body-first, always at your pace.</div>
+        <div class="service-includes">
+          <span class="service-tag">Body Scan</span>
+          <span class="service-tag">Breathwork</span>
+          <span class="service-tag">Session Recording</span>
+          <span class="service-tag">Follow-up Notes</span>
+        </div>
+      </div>
+
+      <div class="service-card selected" data-id="2" data-price="12000" data-name="4-Week Deep Dive Program">
+        <span class="popular-flag">Most Popular</span>
+        <button class="card-close" aria-label="Deselect">✕</button>
+        <div class="service-top">
+          <div class="service-icon-wrap">🌊</div>
+          <div class="service-info">
+            <div class="service-name">4-Week Program</div>
+            <div class="service-duration">4 Sessions · 6 Weeks Support</div>
+          </div>
+          <div class="service-price-wrap">
+            <div class="service-price"><sup>₹</sup>12,000</div>
+            <div class="service-og">₹14,000</div>
+            <div class="service-save">Save ₹2,000</div>
+          </div>
+          <div class="service-selector"></div>
+        </div>
+        <div class="service-desc">A transformative 4-week container for lasting change. Four 90-min sessions with consistent support, practices, and integration between sessions.</div>
+        <div class="service-includes">
+          <span class="service-tag">4 × 90-min Sessions</span>
+          <span class="service-tag">WhatsApp Check-ins</span>
+          <span class="service-tag">Workbook</span>
+          <span class="service-tag">Resource Library</span>
+          <span class="service-tag">Home Practices</span>
+        </div>
+      </div>
+
+      <div class="service-card" data-id="3" data-price="28000" data-name="Deep Transformation Package">
+        <button class="card-close" aria-label="Deselect">✕</button>
+        <div class="service-top">
+          <div class="service-icon-wrap">✨</div>
+          <div class="service-info">
+            <div class="service-name">Deep Transformation</div>
+            <div class="service-duration">3 Months · 12 Sessions</div>
+          </div>
+          <div class="service-price-wrap">
+            <div class="service-price"><sup>₹</sup>28,000</div>
+            <div class="service-og">₹42,000</div>
+            <div class="service-save">Save ₹14,000</div>
+          </div>
+          <div class="service-selector"></div>
+        </div>
+        <div class="service-desc">The most comprehensive container — for those ready to heal the nervous system at its roots. Full trauma-informed protocol over 3 months.</div>
+        <div class="service-includes">
+          <span class="service-tag">12 Sessions</span>
+          <span class="service-tag">Priority Support</span>
+          <span class="service-tag">Full Protocol</span>
+          <span class="service-tag">Lifetime Resources</span>
+          <span class="service-tag">Movement Plans</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- What's Included -->
+    <div class="ornament fade-in">
+      <div class="ornament-line"></div>
+      <span class="ornament-icon">✦</span>
+      <div class="ornament-line"></div>
+    </div>
+
+    <div class="section-title fade-in">Every Session Includes</div>
+    <div class="included-grid fade-in">
+      <div class="included-item">
+        <div class="included-icon">🎥</div>
+        <div class="included-text">
+          <strong>Secure Video Call</strong>
+          <span>Private, confidential space via Zoom or Google Meet</span>
+        </div>
+      </div>
+      <div class="included-item">
+        <div class="included-icon">📝</div>
+        <div class="included-text">
+          <strong>Session Notes</strong>
+          <span>Personalised insights & practices sent after each session</span>
+        </div>
+      </div>
+      <div class="included-item">
+        <div class="included-icon">🎧</div>
+        <div class="included-text">
+          <strong>Recording</strong>
+          <span>Full session recording to revisit at your pace</span>
+        </div>
+      </div>
+      <div class="included-item">
+        <div class="included-icon">💬</div>
+        <div class="included-text">
+          <strong>48hr Support</strong>
+          <span>WhatsApp support window after every session</span>
+        </div>
+      </div>
+      <div class="included-item">
+        <div class="included-icon">🌿</div>
+        <div class="included-text">
+          <strong>Home Practices</strong>
+          <span>Breathwork, movement & regulation tools to use daily</span>
+        </div>
+      </div>
+      <div class="included-item">
+        <div class="included-icon">🔒</div>
+        <div class="included-text">
+          <strong>Safe Container</strong>
+          <span>Trauma-informed, non-judgmental, fully confidential</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="ornament fade-in">
+      <div class="ornament-line"></div>
+      <span class="ornament-icon">✦</span>
+      <div class="ornament-line"></div>
+    </div>
+
+    <div class="testi-strip fade-in" id="testiStrip">
+      <div class="testi-stars">★ ★ ★ ★ ★</div>
+      <div class="testi-text" id="testiText">"Working with Bijoya was the most profound healing experience of my life. For the first time, I felt truly safe in my own body."</div>
+      <div class="testi-author" id="testiAuthor">— Ananya Sharma, Creative Director · Mumbai</div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="ornament fade-in">
+      <div class="ornament-line"></div>
+      <span class="ornament-icon">✦</span>
+      <div class="ornament-line"></div>
+    </div>
+
+    <div class="section-title fade-in">Common Questions</div>
+    <div class="faq-list fade-in">
+
+      <div class="faq-item">
+        <div class="faq-q">
+          How do sessions work?
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-a">All sessions are held online via video call — from the comfort of your own home. After booking, you'll receive a welcome email with a scheduling link to choose your preferred time slot within 48 hours.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          Do I need any prior experience?
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-a">Not at all. My work is designed for everyone — whether you're new to somatic healing or have done therapy before. We always start exactly where you are, with no pressure or expectations.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          What if I need to reschedule?
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-a">Life happens. You can reschedule any session with at least 24 hours' notice at no charge. Just drop me a WhatsApp message and we'll find a time that works for you.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          Is payment secure?
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-a">Yes — all payments are processed through Razorpay, India's most trusted payment gateway. Your card details are never stored and all transactions are encrypted with bank-grade security.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          Can I get a refund?
+          <span class="faq-chevron">▼</span>
+        </div>
+        <div class="faq-a">Single sessions are non-refundable after confirmation, but can be rescheduled. For packages, if you feel the work isn't right for you after the first session, I offer a partial refund — your wellbeing matters more than a transaction.</div>
+      </div>
+
+    </div>
+
+    <!-- Payment Box -->
+    <div class="ornament fade-in">
+      <div class="ornament-line"></div>
+      <span class="ornament-icon">✦</span>
+      <div class="ornament-line"></div>
+    </div>
+
+    <div class="pay-box fade-in" id="payBox">
+      <div class="pay-summary">
+        <div>
+          <div class="pay-summary-label">You selected</div>
+          <div class="pay-summary-service" id="paySummaryName">4-Week Program</div>
+        </div>
+        <div class="pay-summary-price" id="paySummaryPrice"><sup>₹</sup>12,000</div>
+      </div>
+
+      <!-- REPLACE href below with your Razorpay payment link -->
+      <a href="https://rzp.io/l/YOUR_RAZORPAY_LINK" target="_blank" class="pay-btn" id="payBtn">
+        <span class="pay-btn-icon">✦</span>
+        Pay Securely with Razorpay
+      </a>
+
+      <div class="pay-security">
+        <span class="pay-badge"><span class="pay-badge-icon">🔒</span> SSL Encrypted</span>
+        <span class="pay-badge"><span class="pay-badge-icon">✓</span> Razorpay Secured</span>
+        <span class="pay-badge"><span class="pay-badge-icon">💳</span> UPI · Cards · Netbanking</span>
+      </div>
+
+      <div class="pay-whatsapp">
+        Have questions first?
+        <a href="https://wa.me/91XXXXXXXXXX" target="_blank">Chat on WhatsApp →</a>
+      </div>
+    </div>
+
+  </div><!-- /page -->
+
+  <!-- Footer -->
+  <footer class="pay-footer">
+    <a href="index.html">← Back to Website</a>
+    <a href="https://instagram.com/" target="_blank">Instagram</a>
+    <a href="mailto:hello@bijoyamukherji.com">Email</a>
+    <div class="pay-footer-copy">© 2025 Bijoya Mukherji · All rights reserved</div>
+  </footer>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">✦ Session selected!</div>
+
+  <script>
+    /* ── Service selection ── */
+    const cards = document.querySelectorAll('.service-card');
+    const paySummaryName  = document.getElementById('paySummaryName');
+    const paySummaryPrice = document.getElementById('paySummaryPrice');
+    const payBtn  = document.getElementById('payBtn');
+    const payBox  = document.getElementById('payBox');
+    const toast   = document.getElementById('toast');
+
+    // Razorpay links per service — replace with your actual links
+    const payLinks = {
+      '1': 'https://rzp.io/l/YOUR_SINGLE_SESSION_LINK',
+      '2': 'https://rzp.io/l/YOUR_4WEEK_LINK',
+      '3': 'https://rzp.io/l/YOUR_PACKAGE_LINK',
+    };
+
+    function selectCard(card) {
+      cards.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      const name  = card.dataset.name;
+      const price = Number(card.dataset.price).toLocaleString('en-IN');
+      const id    = card.dataset.id;
+      paySummaryName.textContent  = name;
+      paySummaryPrice.innerHTML   = `<sup>₹</sup>${price}`;
+      payBtn.href = payLinks[id] || '#';
+      // Show pay box with animation
+      payBox.style.opacity = '0';
+      payBox.style.transform = 'translateY(12px)';
+      payBox.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
+      requestAnimationFrame(() => {
+        payBox.style.opacity = '1';
+        payBox.style.transform = 'translateY(0)';
+      });
+      showToast(`${name} selected`);
+    }
+
+    function deselectAll() {
+      cards.forEach(c => c.classList.remove('selected'));
+      paySummaryName.textContent = 'No session selected';
+      paySummaryPrice.innerHTML  = '<sup>₹</sup>—';
+      payBtn.removeAttribute('href');
+      showToast('Selection cleared');
+    }
+
+    cards.forEach(card => {
+      // Clicking the card selects it
+      card.addEventListener('click', (e) => {
+        // Don't select if close button was clicked
+        if (e.target.closest('.card-close')) return;
+        selectCard(card);
+      });
+
+      // Close button deselects
+      const closeBtn = card.querySelector('.card-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          deselectAll();
+        });
+      }
+    });
+
+    function showToast(msg) {
+      toast.textContent = '✦ ' + msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+    /* ── FAQ accordion ── */
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    /* ── Testimonial auto-rotate ── */
+    const testimonials = [
+      { text: '"Working with Bijoya was the most profound healing experience of my life. For the first time, I felt truly safe in my own body."', author: '— Ananya Sharma, Creative Director · Mumbai' },
+      { text: '"Her sessions feel like being held by the earth itself. I came with chronic stress and left with tools I still use every single day."', author: '— Radhika Mehta, Entrepreneur · Bangalore' },
+      { text: '"The 4-week program shifted something deep in me. Old patterns I\'d carried for decades started softening."', author: '— Priya Nair, Therapist · Pune' },
+    ];
+    let ti = 0;
+    const tText   = document.getElementById('testiText');
+    const tAuthor = document.getElementById('testiAuthor');
+    setInterval(() => {
+      ti = (ti + 1) % testimonials.length;
+      tText.style.opacity = '0';
+      tAuthor.style.opacity = '0';
+      setTimeout(() => {
+        tText.textContent   = testimonials[ti].text;
+        tAuthor.textContent = testimonials[ti].author;
+        tText.style.opacity = '1';
+        tAuthor.style.opacity = '1';
+      }, 350);
+    }, 5000);
+    tText.style.transition = tAuthor.style.transition = 'opacity 0.35s';
+  </script>
+</body>
+</html>
