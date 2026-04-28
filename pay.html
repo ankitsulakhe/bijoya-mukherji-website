@@ -223,34 +223,6 @@
       background: linear-gradient(135deg, #FEFCF8, #FAF6EF);
     }
 
-    /* ── CARD CLOSE BUTTON ── */
-    .card-close {
-      position: absolute; top: 12px; right: 12px;
-      width: 26px; height: 26px;
-      border-radius: 50%;
-      background: rgba(198,164,108,0.12);
-      border: 1.5px solid rgba(198,164,108,0.35);
-      display: none;
-      align-items: center; justify-content: center;
-      cursor: pointer;
-      font-size: 0.7rem;
-      color: var(--gold);
-      transition: all 0.25s cubic-bezier(0.34,1.56,0.64,1);
-      z-index: 10;
-      line-height: 1;
-      font-weight: 700;
-    }
-    .service-card.selected .card-close {
-      display: flex;
-    }
-    .card-close:hover {
-      background: var(--gold);
-      border-color: var(--gold);
-      color: var(--white);
-      transform: scale(1.15) rotate(90deg);
-      box-shadow: 0 3px 12px rgba(198,164,108,0.4);
-    }
-
     .service-top {
       display: flex; align-items: flex-start;
       justify-content: space-between; gap: 12px;
@@ -428,43 +400,106 @@
       background: var(--white);
       border: 1.5px solid var(--border);
       border-radius: 20px;
-      padding: 28px 24px;
       margin-bottom: 16px;
       position: sticky;
-      bottom: 20px;
-      box-shadow: 0 12px 48px rgba(31,61,54,0.1);
+      bottom: 16px;
+      box-shadow: 0 12px 48px rgba(31,61,54,0.13);
+      overflow: hidden;
+      transition: box-shadow 0.3s;
     }
-    .pay-summary {
+    .pay-box.expanded {
+      box-shadow: 0 20px 64px rgba(31,61,54,0.18);
+    }
+
+    /* Collapsed pill header — always visible */
+    .pay-collapsed {
       display: flex; align-items: center;
       justify-content: space-between;
-      margin-bottom: 20px;
+      padding: 16px 20px;
+      cursor: pointer;
+      user-select: none;
+      gap: 12px;
+      transition: background 0.25s;
     }
-    .pay-summary-label {
-      font-size: 0.8rem; color: var(--soft);
-      margin-bottom: 2px;
+    .pay-collapsed:hover { background: #FDFAF6; }
+    .pay-collapsed-left {
+      display: flex; align-items: center; gap: 12px;
+      min-width: 0;
     }
-    .pay-summary-service {
+    .pay-collapsed-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(198,164,108,0.2);
+    }
+    .pay-collapsed-label {
+      font-size: 11px; font-weight: 500;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: var(--soft); margin-bottom: 1px;
+    }
+    .pay-collapsed-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1rem; font-weight: 500;
+      font-size: 0.95rem; font-weight: 500;
+      color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .pay-collapsed-right {
+      display: flex; align-items: center; gap: 12px;
+      flex-shrink: 0;
+    }
+    .pay-collapsed-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; font-weight: 500;
       color: var(--text);
     }
-    .pay-summary-price {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem; font-weight: 500;
-      color: var(--text);
-      text-align: right;
-    }
-    .pay-summary-price sup {
-      font-size: 0.85rem;
+    .pay-collapsed-price sup {
+      font-size: 0.7rem;
       font-family: 'DM Sans';
       vertical-align: super;
     }
+    .pay-chevron {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      background: rgba(198,164,108,0.12);
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; color: var(--gold);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), background 0.25s;
+      flex-shrink: 0;
+    }
+    .pay-box.expanded .pay-chevron {
+      transform: rotate(180deg);
+      background: var(--gold);
+      color: var(--white);
+      border-color: var(--gold);
+    }
+
+    /* Expandable body */
+    .pay-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1);
+    }
+    .pay-box.expanded .pay-body {
+      max-height: 360px;
+    }
+    .pay-body-inner {
+      padding: 4px 20px 24px;
+      border-top: 1px solid var(--border);
+    }
+    .pay-divider-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin-bottom: 20px;
+    }
+
     .pay-btn {
       display: flex;
       align-items: center; justify-content: center;
       gap: 10px;
       width: 100%;
-      padding: 17px 28px;
+      padding: 16px 28px;
       background: linear-gradient(135deg, var(--gold) 0%, #B8926A 100%);
       color: var(--white);
       border: none; border-radius: 50px;
@@ -476,6 +511,7 @@
       text-decoration: none;
       box-shadow: 0 6px 28px rgba(198,164,108,0.4);
       position: relative; overflow: hidden;
+      margin-bottom: 14px;
     }
     .pay-btn::before {
       content: '';
@@ -493,7 +529,7 @@
 
     .pay-security {
       display: flex; align-items: center; justify-content: center;
-      gap: 18px; margin-top: 14px; flex-wrap: wrap;
+      gap: 16px; margin-bottom: 10px; flex-wrap: wrap;
     }
     .pay-badge {
       display: flex; align-items: center; gap: 5px;
@@ -505,7 +541,6 @@
     .pay-whatsapp {
       display: flex; align-items: center; justify-content: center;
       gap: 8px;
-      margin-top: 12px;
       font-size: 0.8rem; color: var(--soft);
     }
     .pay-whatsapp a {
@@ -621,7 +656,6 @@
     <div class="service-list fade-in" id="serviceList">
 
       <div class="service-card" data-id="1" data-price="3500" data-name="1:1 Somatic Session">
-        <button class="card-close" aria-label="Deselect">✕</button>
         <div class="service-top">
           <div class="service-icon-wrap">🌿</div>
           <div class="service-info">
@@ -644,7 +678,6 @@
 
       <div class="service-card selected" data-id="2" data-price="12000" data-name="4-Week Deep Dive Program">
         <span class="popular-flag">Most Popular</span>
-        <button class="card-close" aria-label="Deselect">✕</button>
         <div class="service-top">
           <div class="service-icon-wrap">🌊</div>
           <div class="service-info">
@@ -669,7 +702,6 @@
       </div>
 
       <div class="service-card" data-id="3" data-price="28000" data-name="Deep Transformation Package">
-        <button class="card-close" aria-label="Deselect">✕</button>
         <div class="service-top">
           <div class="service-icon-wrap">✨</div>
           <div class="service-info">
@@ -821,29 +853,40 @@
     </div>
 
     <div class="pay-box fade-in" id="payBox">
-      <div class="pay-summary">
-        <div>
-          <div class="pay-summary-label">You selected</div>
-          <div class="pay-summary-service" id="paySummaryName">4-Week Program</div>
+      <!-- Collapsed header — always visible, click to expand -->
+      <div class="pay-collapsed" id="payCollapsed">
+        <div class="pay-collapsed-left">
+          <div class="pay-collapsed-dot"></div>
+          <div>
+            <div class="pay-collapsed-label">You selected</div>
+            <div class="pay-collapsed-name" id="paySummaryName">4-Week Program</div>
+          </div>
         </div>
-        <div class="pay-summary-price" id="paySummaryPrice"><sup>₹</sup>12,000</div>
+        <div class="pay-collapsed-right">
+          <div class="pay-collapsed-price" id="paySummaryPrice"><sup>₹</sup>12,000</div>
+          <div class="pay-chevron" id="payChevron">▼</div>
+        </div>
       </div>
 
-      <!-- REPLACE href below with your Razorpay payment link -->
-      <a href="https://rzp.io/l/YOUR_RAZORPAY_LINK" target="_blank" class="pay-btn" id="payBtn">
-        <span class="pay-btn-icon">✦</span>
-        Pay Securely with Razorpay
-      </a>
-
-      <div class="pay-security">
-        <span class="pay-badge"><span class="pay-badge-icon">🔒</span> SSL Encrypted</span>
-        <span class="pay-badge"><span class="pay-badge-icon">✓</span> Razorpay Secured</span>
-        <span class="pay-badge"><span class="pay-badge-icon">💳</span> UPI · Cards · Netbanking</span>
-      </div>
-
-      <div class="pay-whatsapp">
-        Have questions first?
-        <a href="https://wa.me/91XXXXXXXXXX" target="_blank">Chat on WhatsApp →</a>
+      <!-- Expandable body -->
+      <div class="pay-body" id="payBody">
+        <div class="pay-body-inner">
+          <div class="pay-divider-line"></div>
+          <!-- REPLACE href with your Razorpay payment link -->
+          <a href="https://rzp.io/l/YOUR_RAZORPAY_LINK" target="_blank" class="pay-btn" id="payBtn">
+            <span class="pay-btn-icon">✦</span>
+            Pay Securely with Razorpay
+          </a>
+          <div class="pay-security">
+            <span class="pay-badge"><span class="pay-badge-icon">🔒</span> SSL Encrypted</span>
+            <span class="pay-badge"><span class="pay-badge-icon">✓</span> Razorpay Secured</span>
+            <span class="pay-badge"><span class="pay-badge-icon">💳</span> UPI · Cards · Netbanking</span>
+          </div>
+          <div class="pay-whatsapp" style="margin-top:10px;">
+            Have questions first?
+            <a href="https://wa.me/91XXXXXXXXXX" target="_blank">Chat on WhatsApp →</a>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -862,12 +905,13 @@
 
   <script>
     /* ── Service selection ── */
-    const cards = document.querySelectorAll('.service-card');
+    const cards         = document.querySelectorAll('.service-card');
     const paySummaryName  = document.getElementById('paySummaryName');
     const paySummaryPrice = document.getElementById('paySummaryPrice');
-    const payBtn  = document.getElementById('payBtn');
-    const payBox  = document.getElementById('payBox');
-    const toast   = document.getElementById('toast');
+    const payBtn        = document.getElementById('payBtn');
+    const payBox        = document.getElementById('payBox');
+    const payCollapsed  = document.getElementById('payCollapsed');
+    const toast         = document.getElementById('toast');
 
     // Razorpay links per service — replace with your actual links
     const payLinks = {
@@ -882,44 +926,21 @@
       const name  = card.dataset.name;
       const price = Number(card.dataset.price).toLocaleString('en-IN');
       const id    = card.dataset.id;
-      paySummaryName.textContent  = name;
-      paySummaryPrice.innerHTML   = `<sup>₹</sup>${price}`;
+      paySummaryName.textContent = name;
+      paySummaryPrice.innerHTML  = `<sup>₹</sup>${price}`;
       payBtn.href = payLinks[id] || '#';
-      // Show pay box with animation
-      payBox.style.opacity = '0';
-      payBox.style.transform = 'translateY(12px)';
-      payBox.style.transition = 'opacity 0.35s ease, transform 0.35s ease';
-      requestAnimationFrame(() => {
-        payBox.style.opacity = '1';
-        payBox.style.transform = 'translateY(0)';
-      });
+      // Auto-expand pay box when a card is selected
+      payBox.classList.add('expanded');
       showToast(`${name} selected`);
     }
 
-    function deselectAll() {
-      cards.forEach(c => c.classList.remove('selected'));
-      paySummaryName.textContent = 'No session selected';
-      paySummaryPrice.innerHTML  = '<sup>₹</sup>—';
-      payBtn.removeAttribute('href');
-      showToast('Selection cleared');
-    }
+    // Toggle expand/collapse on header click
+    payCollapsed.addEventListener('click', () => {
+      payBox.classList.toggle('expanded');
+    });
 
     cards.forEach(card => {
-      // Clicking the card selects it
-      card.addEventListener('click', (e) => {
-        // Don't select if close button was clicked
-        if (e.target.closest('.card-close')) return;
-        selectCard(card);
-      });
-
-      // Close button deselects
-      const closeBtn = card.querySelector('.card-close');
-      if (closeBtn) {
-        closeBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          deselectAll();
-        });
-      }
+      card.addEventListener('click', () => selectCard(card));
     });
 
     function showToast(msg) {
