@@ -882,7 +882,7 @@ color: #fff;
     }
     .insights-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 24px;
     }
     .insight-card {
@@ -923,13 +923,24 @@ color: #fff;
         background-size: cover;
         background-position: center;
     }
+    .insight-body .divider {
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
+    .text-pasoe.tag_text_wrap{
+     text-transform: capitalize;
+      font-size: 12px;
+      font-weight: 600;
+    }
     .insight-img-art { display: none; }
     .insight-tag {
       position: absolute; top: 16px; left: 16px;
       font-size: 10px; font-weight: 700; letter-spacing: 1.5px;
       text-transform: uppercase;
-      background: rgba(245,241,236,0.92);
-      color: var(--text-soft);
+      /* background: rgba(245,241,236,0.92);
+      color: var(--text-soft); */
+      background: rgb(31 61 54);
+      color: #ffffff;
       padding: 5px 13px; border-radius: 20px;
       backdrop-filter: blur(6px);
       border: 1px solid rgba(255,255,255,0.6);
