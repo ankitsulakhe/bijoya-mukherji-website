@@ -157,7 +157,7 @@ a{
     }
     .nav-logo span { padding-left: 5px;}
     .nav-links {
-      display: flex; align-items: center; gap: 36px;
+      display: flex; align-items: center; gap: 30px;
       list-style: none;
     }
     .nav-links a {
@@ -673,6 +673,7 @@ a{
       color: var(--text);
       margin-bottom: 0;
       line-height: 1.2;
+      margin-top: 0px;
     }
     .clients-header h2 em {
       font-style: normal;
@@ -770,6 +771,7 @@ a{
       font-weight: 300;
       color: var(--text);
       line-height: 1.75;
+      margin-bottom: 0;
     }
     .clients-mission strong {
       color: var(--gold);
@@ -778,13 +780,13 @@ a{
     }
 
     /* ─── PROCESS ─────────────────────────────────── */
-    #process { background: var(--white); }
+    #process, #coaching { background: var(--white); }
     .process-header { text-align: center; margin-bottom: 70px; }
     .process-header .divider { margin: 0 auto 40px; }
     .process-header .section-sub { margin: 0 auto; text-align: center; }
     .process-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 10px;
       /* border: 1px solid var(--border); */
  
@@ -937,6 +939,7 @@ color: #fff;
       flex: 1; display: flex; flex-direction: column;
     }
     .insight-meta {
+      display:none;
       font-size: 12px; font-weight: 500;
       color: var(--text-soft); letter-spacing: 1px;
       text-transform: uppercase; margin-bottom: 10px;
@@ -944,13 +947,16 @@ color: #fff;
     .insight-body h3 {
       font-family: 'Playfair Display', serif;
       font-size: 1.15rem; font-weight: 500;
-      color: var(--text); margin-bottom: 10px; line-height: 1.38;
+      color: var(--text); 
+    margin-top: 0px;
+      margin-bottom: 10px; line-height: 1.38;
     }
     .insight-body p {
     font-size: 0.865rem;
     color: var(--text-soft);
     line-height: normal;
     margin-bottom: 14px;
+    margin-top: 5px;
     }
     p.text-pasoe{
       line-height: 1.5;
@@ -971,7 +977,7 @@ color: #fff;
     #testimonials {
       background: linear-gradient(160deg, #EDE7DE 0%, #E5DDD5 100%);
       position: relative;
-      padding-top: 20px;
+      /* padding-top: 20px; */
       overflow: hidden;
     }
     #testimonials::before {
@@ -1342,7 +1348,7 @@ color: #fff;
     .courses-header .section-sub { color: var(--text); margin: 0 auto; text-align: center; }
     .courses-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
     .course-card {
@@ -1351,7 +1357,7 @@ color: #fff;
       border-radius: 14px;
       overflow: hidden;
       transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s;
-      cursor: pointer;
+      cursor: default;
       text-decoration: none;
     }
     .course-card:hover {
@@ -1727,7 +1733,10 @@ color: #fff;
       letter-spacing: 0.3px;
     }
     .modal-read-info {
-      display: flex; align-items: center; gap: 18px;
+      display:none;
+
+      /* display: flex; */
+       align-items: center; gap: 18px;
     }
     .modal-read-badge {
       display: flex; align-items: center; gap: 7px;
@@ -1793,7 +1802,8 @@ color: #fff;
 
     /* Tags */
     .modal-tags {
-      display: flex; flex-wrap: wrap; gap: 8px;
+      display: none;
+      /* display: flex; flex-wrap: wrap; gap: 8px; */
       margin-top: 36px; padding-top: 28px;
       border-top: 1px solid var(--border);
     }
@@ -1829,7 +1839,9 @@ color: #fff;
 
     /* Share row */
     .modal-share {
-      display: flex; align-items: center; gap: 10px;
+      display: none;
+      /* display: flex; */
+       align-items: center; gap: 10px;
       margin-top: 24px;
     }
     .modal-share-label {
@@ -1863,7 +1875,7 @@ color: #fff;
     }
 
     /* ─── MEDITATION ──────────────────────────────── */
-    #meditation { background: var(--text); position: relative; overflow: hidden; }
+    #meditation,#wellnessstore { background: var(--text); position: relative; overflow: hidden; }
     #meditation::before {
       content: '';
       position: absolute; inset: 0;
@@ -1989,14 +2001,14 @@ color: #fff;
       overflow: hidden;
     }
     .imgmed_1{
-          background: linear-gradient(45deg, black, #0000009c), url(../images/breawtwork2.jpg) no-repeat center;
+          background: linear-gradient(45deg, black, #000000cc), url(../images/breawtwork2.jpg) no-repeat center;
     }
     .imgmed_2{
-        background: linear-gradient(45deg, black, #0000009c), url(../images/somaticvisualisation.jpg) no-repeat center;
+        background: linear-gradient(45deg, black, #000000cc), url(../images/somaticvisualisation.jpg) no-repeat center;
 
     }
     .imgmed_3{
-        background: linear-gradient(45deg, black, #0000009c), url(../images/Morningns.jpg) no-repeat center;
+        background: linear-gradient(45deg, black, #000000cc), url(../images/Morningns.jpg) no-repeat center;
 
     }
     .med-card::before {
@@ -2186,4 +2198,7 @@ color: #fff;
     @media (max-width: 480px) {
       .fab-book { bottom: 20px; right: 18px; }
       .fab-book:hover { width: 148px; }
+    }
+    .d-none-view{
+      display: none !important;
     }
