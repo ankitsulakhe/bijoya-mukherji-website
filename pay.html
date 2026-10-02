@@ -4,1027 +4,473 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Book a Session — Bijoya Mukherji</title>
-  <meta name="description" content="Book a somatic healing session with Bijoya Mukherji — Nervous System Coach & Transformation Guide." />
+  <meta name="description" content="Book a 1:1 session with Bijoya Mukherji — Nervous System Regulation & Performance Coach." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
-
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg:       #F5F1EC;
-      --bg2:      #EDE7DE;
-      --text:     #1F3D36;
-      --soft:     #4A6B62;
-      --gold:     #C6A46C;
-      --gold-lt:  #E2C99A;
-      --rose:     #D8A7A0;
-      --white:    #FFFFFF;
-      --border:   rgba(198,164,108,0.28);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 400;
-      line-height: 1.65;
-      min-height: 100vh;
-    }
-
-    /* ── GRAIN TEXTURE ── */
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 0; opacity: 0.5;
-    }
-
-    /* ── TOP BAR ── */
-    .topbar {
-      background: var(--text);
-      text-align: center;
-      padding: 10px 20px;
-      font-size: 12px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      position: relative; z-index: 1;
-    }
-    .topbar span { color: var(--gold-lt); }
-
-    /* ── HEADER ── */
-    header {
-      text-align: center;
-      padding: 48px 24px 0;
-      position: relative; z-index: 1;
-    }
-    .logo-mark {
-      display: inline-flex; align-items: center; gap: 10px;
-      margin-bottom: 8px;
-    }
-    .logo-line {
-      width: 32px; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold));
-    }
-    .logo-line.right {
-      background: linear-gradient(90deg, var(--gold), transparent);
-    }
-    .logo-gem { color: var(--gold); font-size: 1rem; }
-    .header-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.75rem; font-weight: 500;
-      color: var(--text); letter-spacing: 0.3px;
-    }
-    .header-name em { font-style: italic; color: var(--gold); }
-    .header-role {
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 3px; text-transform: uppercase;
-      color: var(--soft); margin-top: 6px;
-    }
-
-    /* ── PAGE WRAPPER ── */
-    .page {
-      max-width: 480px;
-      margin: 0 auto;
-      padding: 36px 20px 100px; /* extra bottom clearance for sticky pay box */
-      position: relative; z-index: 1;
-    }
-
-    /* ── SECTION DIVIDER ── */
-    .ornament {
-      display: flex; align-items: center; gap: 14px;
-      margin: 32px 0 28px;
-    }
-    .ornament-line {
-      flex: 1; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border), transparent);
-    }
-    .ornament-icon { color: var(--gold); font-size: 0.75rem; opacity: 0.7; }
-
-    /* ── INTRO CARD ── */
-    .intro-card {
-      background: var(--text);
-      border-radius: 20px;
-      padding: 36px 28px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 20px;
-    }
-    .intro-card::before {
-      content: '';
-      position: absolute;
-      width: 300px; height: 300px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(198,164,108,0.18) 0%, transparent 70%);
-      top: -100px; right: -60px;
-      pointer-events: none;
-    }
-    .intro-card::after {
-      content: '';
-      position: absolute;
-      width: 200px; height: 200px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(216,167,160,0.12) 0%, transparent 70%);
-      bottom: -60px; left: -40px;
-      pointer-events: none;
-    }
-    .intro-avatar {
-      width: 76px; height: 76px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(198,164,108,0.35), rgba(216,167,160,0.35));
-      border: 2px solid rgba(198,164,108,0.5);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2rem;
-      margin: 0 auto 18px;
-      position: relative; z-index: 1;
-    }
-    .intro-card h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem; font-weight: 500; font-style: italic;
-      color: var(--white);
-      line-height: 1.3;
-      margin-bottom: 14px;
-      position: relative; z-index: 1;
-    }
-    .intro-card p {
-      font-size: 0.875rem;
-      color: rgba(255,255,255,0.6);
-      line-height: 1.75;
-      position: relative; z-index: 1;
-    }
-    .intro-stats {
-      display: flex; justify-content: center; gap: 28px;
-      margin-top: 24px; padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      position: relative; z-index: 1;
-    }
-    .stat { text-align: center; }
-    .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem; font-weight: 500;
-      color: var(--gold-lt); line-height: 1;
-    }
-    .stat-label {
-      font-size: 10px; font-weight: 500;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      color: rgba(255,255,255,0.4); margin-top: 4px;
-    }
-
-    /* ── SECTION TITLE ── */
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem; font-weight: 500;
-      color: var(--text); margin-bottom: 16px;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .section-title::after {
-      content: '';
-      flex: 1; height: 1px;
-      background: linear-gradient(90deg, var(--border), transparent);
-    }
-
-    /* ── SERVICE CARDS ── */
-    .service-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 8px; }
-
-    .service-card {
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 16px;
-      padding: 20px 18px;
-      cursor: pointer;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .service-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0;
-      width: 4px; height: 100%;
-      background: linear-gradient(180deg, var(--gold), var(--rose));
-      transform: scaleY(0); transform-origin: top;
-      transition: transform 0.35s ease;
-    }
-    .service-card:hover, .service-card.selected {
-      border-color: var(--gold);
-      box-shadow: 0 6px 24px rgba(198,164,108,0.14);
-    }
-    .service-card:hover::before, .service-card.selected::before {
-      transform: scaleY(1);
-    }
-    .service-card.selected {
-      background: linear-gradient(135deg, #FEFCF8, #FAF6EF);
-    }
-
-    /* ── Restructured service-top: 3 rows on mobile ── */
-    .service-top {
-      display: grid;
-      grid-template-columns: 40px 1fr auto;
-      grid-template-rows: auto auto;
-      column-gap: 12px;
-      row-gap: 2px;
-      align-items: start;
-    }
-    .service-icon-wrap {
-      width: 40px; height: 40px;
-      border-radius: 11px;
-      background: linear-gradient(135deg, rgba(198,164,108,0.15), rgba(216,167,160,0.15));
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-      grid-row: 1 / 3;
-      grid-column: 1;
-      margin-top: 2px;
-    }
-    .service-info {
-      grid-column: 2;
-      grid-row: 1;
-      min-width: 0;
-    }
-    .service-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1rem; font-weight: 500;
-      color: var(--text);
-      line-height: 1.2;
-      margin-bottom: 4px;
-    }
-    .service-duration {
-      font-size: 10px; font-weight: 600;
-      letter-spacing: 1px; text-transform: uppercase;
-      color: var(--soft);
-      line-height: 1.4;
-    }
-    .service-price-wrap {
-      grid-column: 3;
-      grid-row: 1 / 3;
-      text-align: right;
-      display: flex; flex-direction: column;
-      align-items: flex-end;
-      gap: 3px;
-    }
-    .service-selector-row {
-      grid-column: 2;
-      grid-row: 2;
-      display: flex; align-items: center; gap: 6px;
-      margin-top: 2px;
-    }
-    .service-price {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem; font-weight: 500;
-      color: var(--text); line-height: 1;
-    }
-    .service-price sup { font-size: 0.7rem; font-family: 'DM Sans'; vertical-align: super; }
-    .service-og {
-      font-size: 10px; color: var(--soft);
-      text-decoration: line-through;
-    }
-    .service-save {
-      font-size: 9px; font-weight: 600;
-      color: #5B8A6E; background: rgba(91,138,110,0.1);
-      padding: 2px 6px; border-radius: 6px;
-      letter-spacing: 0.3px;
-      display: inline-block;
-    }
-    .service-desc {
-      font-size: 0.82rem;
-      color: var(--soft);
-      line-height: 1.65;
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid rgba(198,164,108,0.15);
-    }
-    .service-includes {
-      display: flex; flex-wrap: wrap; gap: 6px;
-      margin-top: 10px;
-    }
-    .service-tag {
-      font-size: 10px; font-weight: 500;
-      letter-spacing: 0.5px;
-      padding: 4px 10px; border-radius: 20px;
-      background: rgba(198,164,108,0.1);
-      color: #8A6A3E;
-      border: 1px solid rgba(198,164,108,0.2);
-    }
-    .service-selector {
-      width: 18px; height: 18px;
-      border-radius: 50%;
-      border: 2px solid var(--border);
-      flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center;
-      transition: all 0.25s;
-    }
-    .service-card.selected .service-selector {
-      background: var(--gold);
-      border-color: var(--gold);
-    }
-    .service-selector::after {
-      content: '';
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: var(--white);
-      display: none;
-    }
-    .service-card.selected .service-selector::after { display: block; }
-    .service-selected-label {
-      font-size: 9px; font-weight: 600;
-      letter-spacing: 1px; text-transform: uppercase;
-      color: var(--gold);
-      opacity: 0;
-      transition: opacity 0.25s;
-    }
-    .service-card.selected .service-selected-label { opacity: 1; }
-
-    .popular-flag {
-      position: absolute; top: 0; right: 16px;
-      background: linear-gradient(135deg, var(--gold), #B8926A);
-      color: var(--white);
-      font-size: 8px; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase;
-      padding: 4px 10px 5px;
-      border-radius: 0 0 8px 8px;
-    }
-
-    /* ── WHAT'S INCLUDED ── */
-    .included-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-    .included-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 16px 16px 14px;
-      display: flex; align-items: flex-start; gap: 12px;
-    }
-    .included-icon {
-      font-size: 1.3rem; flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .included-text strong {
-      display: block;
-      font-size: 0.825rem; font-weight: 600;
-      color: var(--text); margin-bottom: 2px;
-    }
-    .included-text span {
-      font-size: 0.75rem; color: var(--soft); line-height: 1.5;
-    }
-
-    /* ── TESTIMONIAL STRIP ── */
-    .testi-strip {
-      background: linear-gradient(135deg, #EDE7DE, #E5DDD5);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px 22px;
-      margin-bottom: 8px;
-    }
-    .testi-stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 10px; }
-    .testi-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem; font-style: italic;
-      font-weight: 300;
-      color: var(--text);
-      line-height: 1.7;
-      margin-bottom: 12px;
-    }
-    .testi-author {
-      font-size: 0.78rem; font-weight: 600;
-      color: var(--soft); letter-spacing: 0.5px;
-    }
-
-    /* ── FAQ ── */
-    .faq-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 8px; }
-    .faq-item {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      background: var(--white);
-      transition: box-shadow 0.25s;
-    }
-    .faq-item.open { box-shadow: 0 4px 20px rgba(198,164,108,0.1); }
-    .faq-q {
-      display: flex; align-items: center;
-      justify-content: space-between;
-      padding: 16px 18px;
-      cursor: pointer;
-      font-size: 0.875rem; font-weight: 500;
-      color: var(--text);
-      gap: 12px;
-      user-select: none;
-    }
-    .faq-chevron {
-      font-size: 0.7rem; color: var(--gold);
-      transition: transform 0.3s; flex-shrink: 0;
-    }
-    .faq-item.open .faq-chevron { transform: rotate(180deg); }
-    .faq-a {
-      max-height: 0; overflow: hidden;
-      transition: max-height 0.35s ease, padding 0.3s;
-      font-size: 0.825rem; color: var(--soft); line-height: 1.75;
-      padding: 0 18px;
-    }
-    .faq-item.open .faq-a { max-height: 200px; padding: 0 18px 16px; }
-
-    /* ── PAYMENT BOX ── */
-    .pay-box {
-      background: var(--white);
-      border: 1.5px solid var(--border);
-      border-radius: 20px;
-      margin-bottom: 16px;
-      position: sticky;
-      bottom: 16px;
-      z-index: 100;
-      box-shadow: 0 12px 48px rgba(31,61,54,0.13);
-      overflow: hidden;
-      transition: box-shadow 0.3s;
-    }
-    .pay-box.expanded {
-      box-shadow: 0 20px 64px rgba(31,61,54,0.18);
-    }
-
-    /* Collapsed pill header — always visible */
-    .pay-collapsed {
-      display: flex; align-items: center;
-      justify-content: space-between;
-      padding: 16px 20px;
-      cursor: pointer;
-      user-select: none;
-      gap: 12px;
-      transition: background 0.25s;
-    }
-    .pay-collapsed:hover { background: #FDFAF6; }
-    .pay-collapsed-left {
-      display: flex; align-items: center; gap: 12px;
-      min-width: 0;
-    }
-    .pay-collapsed-dot {
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--gold);
-      flex-shrink: 0;
-      box-shadow: 0 0 0 3px rgba(198,164,108,0.2);
-    }
-    .pay-collapsed-label {
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 1px; text-transform: uppercase;
-      color: var(--soft); margin-bottom: 1px;
-    }
-    .pay-collapsed-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 0.95rem; font-weight: 500;
-      color: var(--text);
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
-    .pay-collapsed-right {
-      display: flex; align-items: center; gap: 12px;
-      flex-shrink: 0;
-    }
-    .pay-collapsed-price {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.25rem; font-weight: 500;
-      color: var(--text);
-    }
-    .pay-collapsed-price sup {
-      font-size: 0.7rem;
-      font-family: 'DM Sans';
-      vertical-align: super;
-    }
-    .pay-chevron {
-      width: 28px; height: 28px;
-      border-radius: 50%;
-      background: rgba(198,164,108,0.12);
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.65rem; color: var(--gold);
-      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), background 0.25s;
-      flex-shrink: 0;
-    }
-    .pay-box.expanded .pay-chevron {
-      transform: rotate(180deg);
-      background: var(--gold);
-      color: var(--white);
-      border-color: var(--gold);
-    }
-
-    /* Expandable body */
-    .pay-body {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1);
-    }
-    .pay-box.expanded .pay-body {
-      max-height: 360px;
-    }
-    .pay-body-inner {
-      padding: 4px 20px 24px;
-      border-top: 1px solid var(--border);
-    }
-    .pay-divider-line {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border), transparent);
-      margin-bottom: 20px;
-    }
-
-    .pay-btn {
-      display: flex;
-      align-items: center; justify-content: center;
-      gap: 10px;
-      width: 100%;
-      padding: 16px 28px;
-      background: linear-gradient(135deg, var(--gold) 0%, #B8926A 100%);
-      color: var(--white);
-      border: none; border-radius: 50px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 1rem; font-weight: 600;
-      letter-spacing: 0.3px;
-      cursor: pointer;
-      transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1);
-      text-decoration: none;
-      box-shadow: 0 6px 28px rgba(198,164,108,0.4);
-      position: relative; overflow: hidden;
-      margin-bottom: 14px;
-    }
-    .pay-btn::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
-      opacity: 0; transition: opacity 0.3s;
-    }
-    .pay-btn:hover {
-      transform: translateY(-2px) scale(1.01);
-      box-shadow: 0 12px 36px rgba(198,164,108,0.5);
-    }
-    .pay-btn:hover::before { opacity: 1; }
-    .pay-btn:active { transform: scale(0.98); }
-    .pay-btn-icon { font-size: 1.1rem; }
-
-    .pay-security {
-      display: flex; align-items: center; justify-content: center;
-      gap: 16px; margin-bottom: 10px; flex-wrap: wrap;
-    }
-    .pay-badge {
-      display: flex; align-items: center; gap: 5px;
-      font-size: 10px; font-weight: 500;
-      color: var(--soft); letter-spacing: 0.5px;
-    }
-    .pay-badge-icon { font-size: 0.8rem; }
-
-    .pay-whatsapp {
-      display: flex; align-items: center; justify-content: center;
-      gap: 8px;
-      font-size: 0.8rem; color: var(--soft);
-    }
-    .pay-whatsapp a {
-      color: var(--gold); font-weight: 600;
-      text-decoration: none;
-    }
-    .pay-whatsapp a:hover { text-decoration: underline; }
-
-    /* ── FOOTER ── */
-    .pay-footer {
-      text-align: center; padding: 28px 24px 40px;
-      position: relative; z-index: 1;
-    }
-    .pay-footer a {
-      font-size: 0.825rem; color: var(--soft);
-      text-decoration: none; display: inline-block;
-      margin: 0 12px;
-      transition: color 0.2s;
-    }
-    .pay-footer a:hover { color: var(--gold); }
-    .pay-footer-copy {
-      font-size: 11px; color: rgba(31,61,54,0.35);
-      margin-top: 12px; letter-spacing: 0.5px;
-    }
-
-    /* ── ANIMATIONS ── */
-    .fade-in {
-      opacity: 0; transform: translateY(20px);
-      animation: fadeUp 0.6s ease forwards;
-    }
-    .fade-in:nth-child(1) { animation-delay: 0.1s; }
-    .fade-in:nth-child(2) { animation-delay: 0.2s; }
-    .fade-in:nth-child(3) { animation-delay: 0.3s; }
-    .fade-in:nth-child(4) { animation-delay: 0.4s; }
-    .fade-in:nth-child(5) { animation-delay: 0.5s; }
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── TOAST ── */
-    .toast {
-      position: fixed; bottom: 100px; left: 50%;
-      transform: translateX(-50%) translateY(20px);
-      background: var(--text);
-      color: var(--white);
-      font-size: 0.82rem; font-weight: 500;
-      padding: 12px 22px; border-radius: 50px;
-      box-shadow: 0 8px 32px rgba(31,61,54,0.2);
-      opacity: 0; pointer-events: none;
-      transition: all 0.35s;
-      white-space: nowrap; z-index: 999;
-    }
-    .toast.show {
-      opacity: 1; transform: translateX(-50%) translateY(0);
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/pay.css">
 </head>
 <body>
 
-  <!-- Top Bar -->
-  <div class="topbar">✦ <span>New client spots open</span> for May 2025 ✦</div>
+<!-- ═══════════════════════════════════════════ HEADER -->
+<header class="bk-header">
+  <div class="bk-header-inner">
+    <a href="index.html" class="bk-logo"><img src="images/lotus.svg" alt="">Bijoya <span>Mukherji</span></a>
+    <a href="index.html#coaching" class="bk-back">← Back to website</a>
+  </div>
+</header>
 
-  <!-- Header -->
-  <header>
-    <div class="logo-mark">
-      <div class="logo-line"></div>
-      <span class="logo-gem">✦</span>
-      <div class="logo-line right"></div>
-    </div>
-    <div class="header-name">Bijoya <em>Mukherji</em></div>
-    <div class="header-role">Nervous System Coach · Somatic Practitioner</div>
-  </header>
+<main class="bk-page">
 
-  <!-- Page -->
-  <div class="page">
+  <!-- Intro -->
+  <div class="bk-intro">
+    <span class="bk-label">Book a Session</span>
+    <h1>Begin your journey <em>home to yourself</em></h1>
+    <p>Choose a session, share a few details, and confirm your booking. It takes less than two minutes.</p>
+  </div>
 
-    <!-- Intro Card -->
-    <div class="ornament">
-      <div class="ornament-line"></div>
-      <span class="ornament-icon">✦</span>
-      <div class="ornament-line"></div>
-    </div>
+  <!-- Stepper -->
+  <ol class="bk-steps" id="bkSteps">
+    <li class="bk-step active" data-step="1"><span class="bk-step-num">1</span><span class="bk-step-text">Session</span></li>
+    <li class="bk-step" data-step="2"><span class="bk-step-num">2</span><span class="bk-step-text">Your details</span></li>
+    <li class="bk-step" data-step="3"><span class="bk-step-num">3</span><span class="bk-step-text">Review &amp; confirm</span></li>
+  </ol>
 
-    <div class="intro-card fade-in">
-      <div class="intro-avatar">🌿</div>
-      <h2>"Your healing begins<br>in your body."</h2>
-      <p>I'm Bijoya — a somatic practitioner and nervous system coach. My work helps you move from survival to flow, from contraction to expansion, from anxiety to deep inner peace.</p>
-      <div class="intro-stats">
-        <div class="stat">
-          <div class="stat-num">100+</div>
-          <div class="stat-label">Clients</div>
+  <div class="bk-layout">
+
+    <!-- ═══════════ LEFT: FLOW -->
+    <div class="bk-main">
+
+      <!-- STEP 1: Choose session -->
+      <section class="bk-panel active" id="step1" aria-labelledby="step1Title">
+        <h2 class="bk-panel-title" id="step1Title">Choose your session</h2>
+        <p class="bk-panel-sub">Each container is customised to meet you exactly where you are.</p>
+        <div class="bk-plans" id="bkPlans" role="radiogroup" aria-label="Sessions"></div>
+        <div class="bk-actions">
+          <span></span>
+          <button type="button" class="bk-btn bk-btn-primary" id="toStep2">Continue <span>→</span></button>
         </div>
-        <div class="stat">
-          <div class="stat-num">4.9★</div>
-          <div class="stat-label">Rating</div>
-        </div>
-        <div class="stat">
-          <div class="stat-num">3+</div>
-          <div class="stat-label">Years</div>
-        </div>
-      </div>
-    </div>
+      </section>
 
-    <!-- Services -->
-    <div class="ornament fade-in">
-      <div class="ornament-line"></div>
-      <span class="ornament-icon">✦</span>
-      <div class="ornament-line"></div>
-    </div>
+      <!-- STEP 2: Details -->
+      <section class="bk-panel" id="step2" aria-labelledby="step2Title">
+        <h2 class="bk-panel-title" id="step2Title">Your details</h2>
+        <p class="bk-panel-sub">Everything you share is kept confidential.</p>
 
-    <div class="section-title fade-in">Choose Your Session</div>
+        <form id="bkForm" novalidate>
+          <div class="bk-grid">
+            <div class="bk-field">
+              <label for="fName">Full name *</label>
+              <input type="text" id="fName" name="name" autocomplete="name" placeholder="Your full name" required>
+              <small class="bk-error"></small>
+            </div>
+            <div class="bk-field">
+              <label for="fEmail">Email *</label>
+              <input type="email" id="fEmail" name="email" autocomplete="email" placeholder="you@example.com" required>
+              <small class="bk-error"></small>
+            </div>
+            <div class="bk-field">
+              <label for="fPhone">WhatsApp number *</label>
+              <input type="tel" id="fPhone" name="phone" autocomplete="tel" placeholder="+91 98765 43210" required>
+              <small class="bk-error"></small>
+            </div>
+            <div class="bk-field">
+              <label for="fDate">Preferred date *</label>
+              <input type="date" id="fDate" name="date" required>
+              <small class="bk-error"></small>
+            </div>
+          </div>
 
-    <div class="service-list fade-in" id="serviceList">
+          <div class="bk-field">
+            <label>Preferred time *</label>
+            <div class="bk-slots" id="bkSlots" role="radiogroup" aria-label="Preferred time">
+              <label class="bk-slot"><input type="radio" name="slot" value="Morning (9am – 12pm)"><span>Morning<small>9am – 12pm</small></span></label>
+              <label class="bk-slot"><input type="radio" name="slot" value="Afternoon (12pm – 4pm)"><span>Afternoon<small>12pm – 4pm</small></span></label>
+              <label class="bk-slot"><input type="radio" name="slot" value="Evening (4pm – 8pm)"><span>Evening<small>4pm – 8pm</small></span></label>
+            </div>
+            <small class="bk-error" id="slotError"></small>
+          </div>
 
-      <div class="service-card" data-id="1" data-price="3500" data-name="1:1 Somatic Session">
-        <div class="service-top">
-          <div class="service-icon-wrap">🌿</div>
-          <div class="service-info">
-            <div class="service-name">1:1 Somatic Session</div>
-            <div class="service-duration">90 minutes · Video</div>
+          <div class="bk-field">
+            <label for="fNotes">What would you like support with? <span class="bk-optional">(optional)</span></label>
+            <textarea id="fNotes" name="notes" rows="4" placeholder="Share anything that feels important — stress, sleep, burnout, a transition you're in…"></textarea>
           </div>
-          <div class="service-price-wrap">
-            <div class="service-price"><sup>₹</sup>3,500</div>
-          </div>
-          <div class="service-selector-row">
-            <div class="service-selector"></div>
-            <span class="service-selected-label">Selected</span>
-          </div>
+
+          <label class="bk-check">
+            <input type="checkbox" id="fConsent" name="consent">
+            <span>I understand sessions can be rescheduled with 24 hours' notice, and that this booking is confirmed once my slot and payment are confirmed.</span>
+          </label>
+          <small class="bk-error" id="consentError"></small>
+        </form>
+
+        <div class="bk-actions">
+          <button type="button" class="bk-btn bk-btn-ghost" data-back="1">← Back</button>
+          <button type="button" class="bk-btn bk-btn-primary" id="toStep3">Review booking <span>→</span></button>
         </div>
-        <div class="service-desc">A focused session to address what's most alive — regulation, release, or clarity. We work body-first, always at your pace.</div>
-        <div class="service-includes">
-          <span class="service-tag">Body Scan</span>
-          <span class="service-tag">Breathwork</span>
-          <span class="service-tag">Session Recording</span>
-          <span class="service-tag">Follow-up Notes</span>
-        </div>
-      </div>
+      </section>
 
-      <div class="service-card selected" data-id="2" data-price="12000" data-name="4-Week Deep Dive Program">
-        <span class="popular-flag">Most Popular</span>
-        <div class="service-top">
-          <div class="service-icon-wrap">🌊</div>
-          <div class="service-info">
-            <div class="service-name">4-Week Program</div>
-            <div class="service-duration">4 Sessions · 6 Weeks</div>
-          </div>
-          <div class="service-price-wrap">
-            <div class="service-price"><sup>₹</sup>12,000</div>
-            <div class="service-og">₹14,000</div>
-            <div class="service-save">Save ₹2,000</div>
-          </div>
-          <div class="service-selector-row">
-            <div class="service-selector"></div>
-            <span class="service-selected-label">Selected</span>
-          </div>
-        </div>
-        <div class="service-desc">A transformative 4-week container for lasting change. Four 90-min sessions with consistent support, practices, and integration between sessions.</div>
-        <div class="service-includes">
-          <span class="service-tag">4 × 90-min Sessions</span>
-          <span class="service-tag">WhatsApp Check-ins</span>
-          <span class="service-tag">Workbook</span>
-          <span class="service-tag">Resource Library</span>
-          <span class="service-tag">Home Practices</span>
-        </div>
-      </div>
+      <!-- STEP 3: Review -->
+      <section class="bk-panel" id="step3" aria-labelledby="step3Title">
+        <h2 class="bk-panel-title" id="step3Title">Review &amp; confirm</h2>
+        <p class="bk-panel-sub">Please check everything looks right.</p>
 
-      <div class="service-card" data-id="3" data-price="28000" data-name="Deep Transformation Package">
-        <div class="service-top">
-          <div class="service-icon-wrap">✨</div>
-          <div class="service-info">
-            <div class="service-name">Deep Transformation</div>
-            <div class="service-duration">3 Months · 12 Sessions</div>
+        <div class="bk-review">
+          <div class="bk-review-block">
+            <div class="bk-review-head">
+              <h3>Session</h3>
+              <button type="button" class="bk-link" data-back="1">Change</button>
+            </div>
+            <dl id="reviewSession"></dl>
           </div>
-          <div class="service-price-wrap">
-            <div class="service-price"><sup>₹</sup>28,000</div>
-            <div class="service-og">₹42,000</div>
-            <div class="service-save">Save ₹14,000</div>
-          </div>
-          <div class="service-selector-row">
-            <div class="service-selector"></div>
-            <span class="service-selected-label">Selected</span>
+          <div class="bk-review-block">
+            <div class="bk-review-head">
+              <h3>Your details</h3>
+              <button type="button" class="bk-link" data-back="2">Edit</button>
+            </div>
+            <dl id="reviewDetails"></dl>
           </div>
         </div>
-        <div class="service-desc">The most comprehensive container — for those ready to heal the nervous system at its roots. Full trauma-informed protocol over 3 months.</div>
-        <div class="service-includes">
-          <span class="service-tag">12 Sessions</span>
-          <span class="service-tag">Priority Support</span>
-          <span class="service-tag">Full Protocol</span>
-          <span class="service-tag">Lifetime Resources</span>
-          <span class="service-tag">Movement Plans</span>
+
+        <div class="bk-total">
+          <span>Total</span>
+          <strong id="reviewTotal"></strong>
         </div>
-      </div>
+
+        <div class="bk-actions">
+          <button type="button" class="bk-btn bk-btn-ghost" data-back="2">← Back</button>
+          <button type="button" class="bk-btn bk-btn-primary" id="confirmBtn">Confirm booking <span>→</span></button>
+        </div>
+        <p class="bk-secure">🔒 Your details are only used to arrange your session.</p>
+      </section>
+
+      <!-- DONE -->
+      <section class="bk-panel bk-done" id="stepDone" aria-live="polite">
+        <div class="bk-done-icon">✦</div>
+        <h2 class="bk-panel-title">Almost there, <span id="doneName"></span></h2>
+        <p class="bk-panel-sub" id="doneMessage"></p>
+
+        <div class="bk-ref">
+          <span>Booking reference</span>
+          <strong id="doneRef"></strong>
+        </div>
+
+        <a href="#" target="_blank" rel="noopener" class="bk-btn bk-btn-primary bk-btn-block" id="doneWhatsApp">💬 Send booking on WhatsApp</a>
+
+        <div class="bk-next">
+          <h3>What happens next</h3>
+          <ol>
+            <li>Send your booking on WhatsApp so it reaches Bijoya directly.</li>
+            <li>You'll receive a confirmed slot within 24 hours.</li>
+            <li id="donePayStep">Payment details are shared along with your confirmed slot.</li>
+            <li>A welcome email with your session link (or venue) follows.</li>
+          </ol>
+        </div>
+
+        <div class="bk-actions bk-actions-center">
+          <a href="index.html" class="bk-btn bk-btn-ghost">Back to website</a>
+          <button type="button" class="bk-btn bk-btn-ghost" id="bookAnother">Book another session</button>
+        </div>
+      </section>
 
     </div>
 
-    <!-- What's Included -->
-    <div class="ornament fade-in">
-      <div class="ornament-line"></div>
-      <span class="ornament-icon">✦</span>
-      <div class="ornament-line"></div>
-    </div>
-
-    <div class="section-title fade-in">Every Session Includes</div>
-    <div class="included-grid fade-in">
-      <div class="included-item">
-        <div class="included-icon">🎥</div>
-        <div class="included-text">
-          <strong>Secure Video Call</strong>
-          <span>Private, confidential space via Zoom or Google Meet</span>
-        </div>
+    <!-- ═══════════ RIGHT: SUMMARY -->
+    <aside class="bk-summary" id="bkSummary" aria-label="Booking summary">
+      <span class="bk-label">Your selection</span>
+      <h3 id="sumName">—</h3>
+      <p class="bk-sum-meta" id="sumMeta"></p>
+      <div class="bk-sum-price" id="sumPrice"></div>
+      <div class="bk-sum-divider"></div>
+      <ul class="bk-sum-features" id="sumFeatures"></ul>
+      <div class="bk-sum-trust">
+        <span>✦ Trauma-informed practice</span>
+        <span>✦ Certified somatic coach</span>
+        <span>✦ 100+ clients transformed</span>
       </div>
-      <div class="included-item">
-        <div class="included-icon">📝</div>
-        <div class="included-text">
-          <strong>Session Notes</strong>
-          <span>Personalised insights & practices sent after each session</span>
-        </div>
-      </div>
-      <div class="included-item">
-        <div class="included-icon">🎧</div>
-        <div class="included-text">
-          <strong>Recording</strong>
-          <span>Full session recording to revisit at your pace</span>
-        </div>
-      </div>
-      <div class="included-item">
-        <div class="included-icon">💬</div>
-        <div class="included-text">
-          <strong>48hr Support</strong>
-          <span>WhatsApp support window after every session</span>
-        </div>
-      </div>
-      <div class="included-item">
-        <div class="included-icon">🌿</div>
-        <div class="included-text">
-          <strong>Home Practices</strong>
-          <span>Breathwork, movement & regulation tools to use daily</span>
-        </div>
-      </div>
-      <div class="included-item">
-        <div class="included-icon">🔒</div>
-        <div class="included-text">
-          <strong>Safe Container</strong>
-          <span>Trauma-informed, non-judgmental, fully confidential</span>
-        </div>
-      </div>
-    </div>
+      <p class="bk-sum-help">Questions first? <a href="https://wa.me/919833341926" target="_blank" rel="noopener">Chat on WhatsApp →</a></p>
+    </aside>
 
-    <!-- Testimonial -->
-    <div class="ornament fade-in">
-      <div class="ornament-line"></div>
-      <span class="ornament-icon">✦</span>
-      <div class="ornament-line"></div>
-    </div>
+  </div>
 
-    <div class="testi-strip fade-in" id="testiStrip">
-      <div class="testi-stars">★ ★ ★ ★ ★</div>
-      <div class="testi-text" id="testiText">"Working with Bijoya was the most profound healing experience of my life. For the first time, I felt truly safe in my own body."</div>
-      <div class="testi-author" id="testiAuthor">— Ananya Sharma, Creative Director · Mumbai</div>
-    </div>
+  <!-- FAQ -->
+  <section class="bk-faq">
+    <h2 class="bk-panel-title">Common questions</h2>
+    <details>
+      <summary>How do online sessions work?</summary>
+      <p>Online sessions are held over a private video call from the comfort of your home. Once your slot is confirmed you'll receive the call link by email and WhatsApp.</p>
+    </details>
+    <details>
+      <summary>Where are in-person sessions held?</summary>
+      <p>The venue for Aura Cleansing Pranic Healing is shared with you when your slot is confirmed.</p>
+    </details>
+    <details>
+      <summary>Do I need any prior experience?</summary>
+      <p>Not at all. Whether you're new to somatic work or have done therapy before, we always start exactly where you are.</p>
+    </details>
+    <details>
+      <summary>What if I need to reschedule?</summary>
+      <p>You can reschedule any session with at least 24 hours' notice at no charge — just send a WhatsApp message.</p>
+    </details>
+    <details>
+      <summary>How do I pay?</summary>
+      <p>Payment details are shared along with your confirmed slot. Secure online payment (UPI, cards and netbanking) is coming soon.</p>
+    </details>
+  </section>
 
-    <!-- FAQ -->
-    <div class="ornament fade-in">
-      <div class="ornament-line"></div>
-      <span class="ornament-icon">✦</span>
-      <div class="ornament-line"></div>
-    </div>
+</main>
 
-    <div class="section-title fade-in">Common Questions</div>
-    <div class="faq-list fade-in">
+<footer class="bk-footer">
+  <a href="index.html">Website</a>
+  <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+  <a href="mailto:hello@bijoyamukherji.com">Email</a>
+  <p>© 2026 Bijoya Mukherji. All rights reserved.</p>
+</footer>
 
-      <div class="faq-item">
-        <div class="faq-q">
-          How do sessions work?
-          <span class="faq-chevron">▼</span>
-        </div>
-        <div class="faq-a">All sessions are held online via video call — from the comfort of your own home. After booking, you'll receive a welcome email with a scheduling link to choose your preferred time slot within 48 hours.</div>
-      </div>
+<script>
+  /* ── Booking config ── */
+  const WHATSAPP_NUMBER = '919833341926';
 
-      <div class="faq-item">
-        <div class="faq-q">
-          Do I need any prior experience?
-          <span class="faq-chevron">▼</span>
-        </div>
-        <div class="faq-a">Not at all. My work is designed for everyone — whether you're new to somatic healing or have done therapy before. We always start exactly where you are, with no pressure or expectations.</div>
-      </div>
+  const PLANS = {
+    clarity: {
+      label: 'Single Session',
+      name: '1:1 Online Clarity Session',
+      meta: '60 minutes · Online',
+      price: 3999,
+      mode: 'Online',
+      features: ['A space to be fully heard, seen & understood', 'Root-cause assessment of your patterns', 'Nervous system assessment', 'Somatic grounding & meditation', 'Clarity on your next steps']
+    },
+    reset: {
+      label: 'Somatic Yoga',
+      name: '6-Week Reset & Realign Programme',
+      meta: '6 weeks · 12 hrs of sessions · Online',
+      price: 48000,
+      mode: 'Online',
+      popular: true,
+      features: ['12 hrs of 1:1 sessions', 'Energy healing sessions', 'Nervous system mapping', 'Yoga, breathwork & meditation', 'WhatsApp check-ins', 'Resource book & integration workbook']
+    },
+    deep: {
+      label: 'Complete Journey',
+      name: 'Deep Transformation',
+      meta: '3 months · 21 hrs of sessions · Online',
+      price: null,
+      mode: 'Online',
+      features: ['21 hrs of goal-oriented 1:1 sessions', 'Deep cognitive repatterning', 'Somatic yoga, breathwork & meditations', 'Energy healing plan', 'Priority WhatsApp support', 'Lifetime resource book access']
+    },
+    pranic: {
+      label: 'In-Person Session',
+      name: 'Aura Cleansing Pranic Healing',
+      meta: '90 minutes · In-person',
+      price: 6000,
+      mode: 'In-person',
+      features: ['Personalised pranic healing', 'Deep energy scanning (chakras & aura)', 'Clearing energetic blockages', 'Energising & protecting your energy field', 'Chakra grounding meditation']
+    }
+  };
 
-      <div class="faq-item">
-        <div class="faq-q">
-          What if I need to reschedule?
-          <span class="faq-chevron">▼</span>
-        </div>
-        <div class="faq-a">Life happens. You can reschedule any session with at least 24 hours' notice at no charge. Just drop me a WhatsApp message and we'll find a time that works for you.</div>
-      </div>
+  /* ── Payment hook ──
+     Razorpay goes here later: create an order on your server for booking.amount,
+     open Razorpay Checkout with that order id, and resolve with
+     { status: 'paid', paymentId } on success. Until then every booking is
+     returned as 'pending' and payment is arranged after the slot is confirmed. */
+  function startPayment(booking) {
+    return Promise.resolve({ status: 'pending' });
+  }
 
-      <div class="faq-item">
-        <div class="faq-q">
-          Is payment secure?
-          <span class="faq-chevron">▼</span>
-        </div>
-        <div class="faq-a">Yes — all payments are processed through Razorpay, India's most trusted payment gateway. Your card details are never stored and all transactions are encrypted with bank-grade security.</div>
-      </div>
+  /* ── State ── */
+  const params = new URLSearchParams(location.search);
+  let selectedPlan = PLANS[params.get('plan')] ? params.get('plan') : 'clarity';
+  let currentStep = 1;
 
-      <div class="faq-item">
-        <div class="faq-q">
-          Can I get a refund?
-          <span class="faq-chevron">▼</span>
-        </div>
-        <div class="faq-a">Single sessions are non-refundable after confirmation, but can be rescheduled. For packages, if you feel the work isn't right for you after the first session, I offer a partial refund — your wellbeing matters more than a transaction.</div>
-      </div>
+  const formatINR = n => '₹' + n.toLocaleString('en-IN');
+  const priceText = plan => plan.price ? formatINR(plan.price) : 'Connect to Discuss';
+  const escapeHTML = s => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-    </div>
+  /* ── Step 1: plan cards ── */
+  const plansEl = document.getElementById('bkPlans');
+  plansEl.innerHTML = Object.entries(PLANS).map(([id, p]) => `
+    <label class="bk-plan${p.popular ? ' is-popular' : ''}">
+      <input type="radio" name="plan" value="${id}">
+      ${p.popular ? '<span class="bk-plan-badge">Most Popular</span>' : ''}
+      <span class="bk-plan-radio"></span>
+      <span class="bk-plan-body">
+        <span class="bk-plan-label">${p.label}</span>
+        <span class="bk-plan-name">${p.name}</span>
+        <span class="bk-plan-meta">${p.meta}</span>
+      </span>
+      <span class="bk-plan-price${p.price ? '' : ' is-text'}">${priceText(p)}</span>
+    </label>`).join('');
 
-    <!-- Payment Box -->
-    <div class="ornament fade-in">
-      <div class="ornament-line"></div>
-      <span class="ornament-icon">✦</span>
-      <div class="ornament-line"></div>
-    </div>
+  plansEl.addEventListener('change', e => {
+    if (e.target.name === 'plan') { selectedPlan = e.target.value; renderSummary(); }
+  });
 
-    <div class="pay-box fade-in" id="payBox">
-      <!-- Collapsed header — always visible, click to expand -->
-      <div class="pay-collapsed" id="payCollapsed">
-        <div class="pay-collapsed-left">
-          <div class="pay-collapsed-dot"></div>
-          <div>
-            <div class="pay-collapsed-label">You selected</div>
-            <div class="pay-collapsed-name" id="paySummaryName">4-Week Program</div>
-          </div>
-        </div>
-        <div class="pay-collapsed-right">
-          <div class="pay-collapsed-price" id="paySummaryPrice"><sup>₹</sup>12,000</div>
-          <div class="pay-chevron" id="payChevron">▼</div>
-        </div>
-      </div>
+  function renderSummary() {
+    const p = PLANS[selectedPlan];
+    plansEl.querySelector(`input[value="${selectedPlan}"]`).checked = true;
+    document.getElementById('sumName').textContent = p.name;
+    document.getElementById('sumMeta').textContent = p.meta;
+    document.getElementById('sumPrice').innerHTML = p.price
+      ? `<sup>₹</sup>${p.price.toLocaleString('en-IN')}`
+      : '<span class="is-text">Connect to Discuss</span>';
+    document.getElementById('sumFeatures').innerHTML = p.features.map(f => `<li>${f}</li>`).join('');
+    document.getElementById('confirmBtn').innerHTML = p.price
+      ? 'Confirm booking <span>→</span>'
+      : 'Send enquiry <span>→</span>';
+  }
 
-      <!-- Expandable body -->
-      <div class="pay-body" id="payBody">
-        <div class="pay-body-inner">
-          <div class="pay-divider-line"></div>
-          <!-- REPLACE href with your Razorpay payment link -->
-          <a href="https://rzp.io/l/YOUR_RAZORPAY_LINK" target="_blank" class="pay-btn" id="payBtn">
-            <span class="pay-btn-icon">✦</span>
-            Pay Securely with Razorpay
-          </a>
-          <div class="pay-security">
-            <span class="pay-badge"><span class="pay-badge-icon">🔒</span> SSL Encrypted</span>
-            <span class="pay-badge"><span class="pay-badge-icon">✓</span> Razorpay Secured</span>
-            <span class="pay-badge"><span class="pay-badge-icon">💳</span> UPI · Cards · Netbanking</span>
-          </div>
-          <div class="pay-whatsapp" style="margin-top:10px;">
-            Have questions first?
-            <a href="https://wa.me/91XXXXXXXXXX" target="_blank">Chat on WhatsApp →</a>
-          </div>
-        </div>
-      </div>
-    </div>
+  /* ── Step navigation ── */
+  function goToStep(step) {
+    currentStep = step;
+    document.querySelectorAll('.bk-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById(step === 'done' ? 'stepDone' : `step${step}`).classList.add('active');
+    document.querySelectorAll('.bk-step').forEach(s => {
+      const n = Number(s.dataset.step);
+      s.classList.toggle('active', n === step);
+      s.classList.toggle('complete', step === 'done' || n < step);
+    });
+    document.body.classList.toggle('is-done', step === 'done');
+    document.getElementById('bkSteps').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 
-  </div><!-- /page -->
+  document.querySelectorAll('[data-back]').forEach(btn =>
+    btn.addEventListener('click', () => goToStep(Number(btn.dataset.back))));
+  document.getElementById('toStep2').addEventListener('click', () => goToStep(2));
 
-  <!-- Footer -->
-  <footer class="pay-footer">
-    <a href="index.html">← Back to Website</a>
-    <a href="https://instagram.com/" target="_blank">Instagram</a>
-    <a href="mailto:hello@bijoyamukherji.com">Email</a>
-    <div class="pay-footer-copy">© 2025 Bijoya Mukherji · All rights reserved</div>
-  </footer>
+  /* ── Step 2: validation ── */
+  const form = document.getElementById('bkForm');
+  const els = form.elements;
+  const dateInput = document.getElementById('fDate');
+  const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate() + 1);
+  dateInput.min = `${tomorrow.getFullYear()}-${String(tomorrow.getMonth() + 1).padStart(2, '0')}-${String(tomorrow.getDate()).padStart(2, '0')}`;
 
-  <!-- Toast -->
-  <div class="toast" id="toast">✦ Session selected!</div>
+  function setError(input, msg) {
+    const err = input.closest('.bk-field').querySelector('.bk-error');
+    err.textContent = msg;
+    input.classList.toggle('invalid', !!msg);
+    return !msg;
+  }
 
-  <script>
-    /* ── Service selection ── */
-    const cards         = document.querySelectorAll('.service-card');
-    const paySummaryName  = document.getElementById('paySummaryName');
-    const paySummaryPrice = document.getElementById('paySummaryPrice');
-    const payBtn        = document.getElementById('payBtn');
-    const payBox        = document.getElementById('payBox');
-    const payCollapsed  = document.getElementById('payCollapsed');
-    const toast         = document.getElementById('toast');
+  function validate() {
+    let ok = true;
+    const name = els.name.value.trim();
+    const email = els.email.value.trim();
+    const phone = els.phone.value.replace(/[\s-]/g, '');
+    ok = setError(els.name, name.length < 2 ? 'Please enter your name.' : '') && ok;
+    ok = setError(els.email, /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? '' : 'Please enter a valid email.') && ok;
+    ok = setError(els.phone, /^(\+?\d{10,13})$/.test(phone) ? '' : 'Please enter a valid phone number.') && ok;
+    ok = setError(dateInput, !dateInput.value ? 'Please choose a date.'
+      : dateInput.value < dateInput.min ? 'Please choose a date from tomorrow onwards.' : '') && ok;
 
-    // Razorpay links per service — replace with your actual links
-    const payLinks = {
-      '1': 'https://rzp.io/l/YOUR_SINGLE_SESSION_LINK',
-      '2': 'https://rzp.io/l/YOUR_4WEEK_LINK',
-      '3': 'https://rzp.io/l/YOUR_PACKAGE_LINK',
+    const slot = form.querySelector('input[name="slot"]:checked');
+    document.getElementById('slotError').textContent = slot ? '' : 'Please choose a time of day.';
+    ok = !!slot && ok;
+
+    const consent = document.getElementById('fConsent').checked;
+    document.getElementById('consentError').textContent = consent ? '' : 'Please confirm to continue.';
+    ok = consent && ok;
+
+    if (!ok) {
+      const first = form.querySelector('.invalid') || (!slot && document.getElementById('bkSlots'));
+      if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    return ok;
+  }
+
+  form.addEventListener('input', e => {
+    if (e.target.classList.contains('invalid')) setError(e.target, '');
+    if (e.target.name === 'slot') document.getElementById('slotError').textContent = '';
+    if (e.target.id === 'fConsent') document.getElementById('consentError').textContent = '';
+  });
+
+  function getBooking() {
+    const p = PLANS[selectedPlan];
+    return {
+      planId: selectedPlan,
+      plan: p.name,
+      mode: p.mode,
+      amount: p.price,
+      name: els.name.value.trim(),
+      email: els.email.value.trim(),
+      phone: els.phone.value.trim(),
+      date: dateInput.value,
+      slot: form.querySelector('input[name="slot"]:checked').value,
+      notes: els.notes.value.trim()
     };
+  }
 
-    function selectCard(card) {
-      cards.forEach(c => c.classList.remove('selected'));
-      card.classList.add('selected');
-      const name  = card.dataset.name;
-      const price = Number(card.dataset.price).toLocaleString('en-IN');
-      const id    = card.dataset.id;
-      paySummaryName.textContent = name;
-      paySummaryPrice.innerHTML  = `<sup>₹</sup>${price}`;
-      payBtn.href = payLinks[id] || '#';
-      // Auto-expand pay box when a card is selected
-      payBox.classList.add('expanded');
-      showToast(`${name} selected`);
-    }
+  const formatDate = iso => new Date(iso + 'T00:00:00').toLocaleDateString('en-IN', { weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' });
 
-    // Toggle expand/collapse on header click
-    payCollapsed.addEventListener('click', () => {
-      payBox.classList.toggle('expanded');
-    });
+  /* ── Step 3: review ── */
+  document.getElementById('toStep3').addEventListener('click', () => {
+    if (!validate()) return;
+    const b = getBooking();
+    const row = (k, v) => `<div><dt>${k}</dt><dd>${escapeHTML(v)}</dd></div>`;
+    document.getElementById('reviewSession').innerHTML =
+      row('Session', b.plan) + row('Format', PLANS[b.planId].meta) +
+      row('Preferred date', formatDate(b.date)) + row('Preferred time', b.slot);
+    document.getElementById('reviewDetails').innerHTML =
+      row('Name', b.name) + row('Email', b.email) + row('WhatsApp', b.phone) +
+      (b.notes ? row('Notes', b.notes) : '');
+    document.getElementById('reviewTotal').textContent = b.amount ? formatINR(b.amount) : 'Connect to Discuss';
+    goToStep(3);
+  });
 
-    cards.forEach(card => {
-      card.addEventListener('click', () => selectCard(card));
-    });
+  /* ── Confirm ── */
+  function makeRef() {
+    const d = new Date();
+    const ymd = d.getFullYear().toString().slice(2) + String(d.getMonth() + 1).padStart(2, '0') + String(d.getDate()).padStart(2, '0');
+    return `BM-${ymd}-${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
+  }
 
-    function showToast(msg) {
-      toast.textContent = '✦ ' + msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2200);
-    }
-
-    /* ── FAQ accordion ── */
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => {
-        const item = q.parentElement;
-        const isOpen = item.classList.contains('open');
-        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-        if (!isOpen) item.classList.add('open');
-      });
-    });
-
-    /* ── Testimonial auto-rotate ── */
-    const testimonials = [
-      { text: '"Working with Bijoya was the most profound healing experience of my life. For the first time, I felt truly safe in my own body."', author: '— Ananya Sharma, Creative Director · Mumbai' },
-      { text: '"Her sessions feel like being held by the earth itself. I came with chronic stress and left with tools I still use every single day."', author: '— Radhika Mehta, Entrepreneur · Bangalore' },
-      { text: '"The 4-week program shifted something deep in me. Old patterns I\'d carried for decades started softening."', author: '— Priya Nair, Therapist · Pune' },
+  function whatsappLink(b) {
+    const lines = [
+      `Hi Bijoya, I'd like to ${b.amount ? 'book' : 'enquire about'} a session.`,
+      '',
+      `Reference: ${b.ref}`,
+      `Session: ${b.plan}`,
+      `Amount: ${b.amount ? formatINR(b.amount) : 'Connect to Discuss'}`,
+      `Preferred date: ${formatDate(b.date)}`,
+      `Preferred time: ${b.slot}`,
+      '',
+      `Name: ${b.name}`,
+      `Email: ${b.email}`,
+      `Phone: ${b.phone}`
     ];
-    let ti = 0;
-    const tText   = document.getElementById('testiText');
-    const tAuthor = document.getElementById('testiAuthor');
-    setInterval(() => {
-      ti = (ti + 1) % testimonials.length;
-      tText.style.opacity = '0';
-      tAuthor.style.opacity = '0';
-      setTimeout(() => {
-        tText.textContent   = testimonials[ti].text;
-        tAuthor.textContent = testimonials[ti].author;
-        tText.style.opacity = '1';
-        tAuthor.style.opacity = '1';
-      }, 350);
-    }, 5000);
-    tText.style.transition = tAuthor.style.transition = 'opacity 0.35s';
-  </script>
+    if (b.notes) lines.push(`Notes: ${b.notes}`);
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`;
+  }
+
+  const confirmBtn = document.getElementById('confirmBtn');
+  confirmBtn.addEventListener('click', () => {
+    const booking = { ...getBooking(), ref: makeRef() };
+    confirmBtn.disabled = true;
+
+    const payment = booking.amount ? startPayment(booking) : Promise.resolve({ status: 'enquiry' });
+    payment.then(result => {
+      document.getElementById('doneName').textContent = booking.name.split(' ')[0];
+      document.getElementById('doneRef').textContent = booking.ref;
+      document.getElementById('doneWhatsApp').href = whatsappLink(booking);
+      document.getElementById('doneMessage').textContent = result.status === 'paid'
+        ? `Your payment was successful. Send your booking on WhatsApp so we can confirm your ${booking.plan} slot.`
+        : result.status === 'enquiry'
+          ? `Send your enquiry on WhatsApp and Bijoya will reach out to discuss the ${booking.plan} journey with you.`
+          : `Your ${booking.plan} request is ready. Send it on WhatsApp to lock in your preferred slot.`;
+      document.getElementById('donePayStep').textContent = result.status === 'paid'
+        ? 'Your payment is already complete — nothing more to pay.'
+        : result.status === 'enquiry'
+          ? 'Your programme, schedule and investment are discussed together on a short call.'
+          : 'Payment details are shared along with your confirmed slot.';
+      goToStep('done');
+    }).catch(() => {
+      alert('Payment could not be completed. Please try again or reach out on WhatsApp.');
+    }).finally(() => { confirmBtn.disabled = false; });
+  });
+
+  document.getElementById('bookAnother').addEventListener('click', () => {
+    form.reset();
+    goToStep(1);
+  });
+
+  renderSummary();
+</script>
 </body>
 </html>
