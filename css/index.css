@@ -2422,3 +2422,126 @@ color: #fff;
       .hamburger { display: flex; }
       .mobile-menu { display: flex; }
     }
+
+    /* ─── FLUID CONTAINER ─────────────────────────── */
+    .container.container-fluid { max-width: none; width: 100%; padding: 0 48px; }
+    @media (max-width: 768px) {
+      .container.container-fluid { padding: 0 20px; }
+    }
+
+    /* ─── 1:1 COACHING: aligned card rows ─────────── */
+    #coaching .pricing-grid {
+      column-gap: 22px;
+      row-gap: 44px;
+      margin-top: 56px;
+    }
+    #coaching .price-card {
+      display: grid;
+      grid-row: span 5;
+      grid-template-rows: subgrid;
+      row-gap: 0;
+      padding: 34px 26px 26px;
+      border-radius: 20px;
+      box-shadow: 0 4px 24px rgba(31,61,54,0.05);
+    }
+    #coaching .price-card.featured { transform: scale(1.03); }
+    #coaching .price-card.featured:hover { transform: scale(1.03) translateY(-6px); }
+    .price-head .price-label { margin-bottom: 10px !important; }
+    .price-head h3 { margin: 10px 0 12px; font-size: 1.45rem; line-height: 1.25; }
+    .price-head > p:not(.price-label) {
+      font-size: 0.875rem; color: var(--text-soft);
+      line-height: 1.7; margin: 0 0 24px;
+    }
+    .price-cost { display: flex; flex-direction: column; justify-content: flex-start; padding-bottom: 22px; }
+    .price-cost .price-amount { margin: 0; }
+    .price-cost .price-period { margin: 8px 0 0; }
+    .price-amount.price-amount-text { font-size: 1.6rem; letter-spacing: -0.3px; line-height: 1.2; }
+    #coaching .price-divider { margin-bottom: 14px; }
+    .price-body { margin-bottom: 26px; }
+    .price-body .price-features { margin: 0; }
+    .price-body .price-feature { padding: 6px 0; line-height: 1.55; }
+    .price-levels {
+      list-style: none;
+      margin: 18px 0 0;
+      padding: 14px 16px;
+      background: rgba(198,164,108,0.08);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .price-levels li { font-size: 0.8rem; color: var(--text-soft); line-height: 1.5; }
+    .price-levels strong { color: var(--text); font-weight: 600; }
+    .price-level-tag {
+      display: block;
+      font-size: 9px; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+    #coaching .price-card.featured .price-head > p:not(.price-label) { color: rgba(255,255,255,0.78); }
+    #coaching .price-card .btn { align-self: end; }
+
+    @media (max-width: 768px) {
+      #coaching .pricing-grid { margin-top: 36px; row-gap: 28px; }
+      #coaching .price-card.featured,
+      #coaching .price-card.featured:hover { transform: none; }
+      .price-cost .price-amount:not(.price-amount-text) { font-size: 2.4rem; }
+    }
+
+    /* ─── TESTIMONIALS: card refresh ──────────────── */
+    .testimonials-header { margin-bottom: 40px; }
+    .slider-wrap { padding: 20px 0 40px; margin: 0 -12px; }
+    .slider-track { align-items: stretch; }
+    .testi-inner {
+      display: flex; flex-direction: column;
+      text-align: left;
+      padding: 34px 30px 26px;
+      border-radius: 20px;
+      box-shadow: 0 6px 30px rgba(31,61,54,0.07);
+      border: 1px solid rgba(198,164,108,0.15);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+    .testi-inner:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .testi-inner::before {
+      position: absolute;
+      top: 22px; right: 26px;
+      font-size: 5rem;
+      margin: 0;
+      opacity: 0.25;
+    }
+    .testi-stars { margin: 0 0 18px; }
+    .testi-quote {
+      flex-grow: 1;
+      font-size: 1.2rem;
+      line-height: 1.7;
+      margin: 0 0 26px;
+    }
+    .testi-author {
+      display: flex; align-items: center; gap: 14px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .testi-author .testi-avatar {
+      width: 52px; height: 52px;
+      margin: 0;
+      flex-shrink: 0;
+      border-width: 2px;
+      box-shadow: 0 0 0 4px rgba(198,164,108,0.1);
+    }
+    .testi-initials {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, var(--text), #2E5A4F);
+      color: var(--gold-lt);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.5px;
+    }
+    .testi-author .testi-name { margin: 0 0 2px; }
+    .testi-author .testi-role { margin: 0; line-height: 1.4; }
+    .slider-controls { margin-top: 12px; }
+    .slider-dot { border: none; padding: 0; }
+
+    @media (max-width: 768px) {
+      .testi-inner { padding: 28px 22px 22px; }
+      .testi-quote { font-size: 1.1rem; }
+    }
