@@ -26,6 +26,7 @@
   <a onclick="closeMobile()" href="#courses">Courses</a>
   <!-- <a onclick="closeMobile()" href="#work">Work With Me</a> -->
   <a onclick="closeMobile()" href="#meditation">Meditation</a>
+  <a onclick="closeMobile()" href="#gallery">Gallery</a>
 </div>
 
 <!-- ═══════════════════════════════════════════ NAVBAR -->
@@ -45,6 +46,7 @@
       <li><a href="#courses">Courses</a></li>
       <!-- <li><a href="#work">Work With Me</a></li> -->
       <li><a href="#meditation">Meditation</a></li>
+      <li><a href="#gallery">Gallery</a></li>
     </ul>
     <div class="hamburger" id="hamburger">
       <span></span><span></span><span></span>
@@ -1044,6 +1046,78 @@
   </div>
 </section>
 
+<!-- ═══════════════════════════════════════════ GALLERY -->
+<section class="section" id="gallery">
+  <div class="container">
+    <div class="gallery-card fade-up">
+
+      <!-- Hero slider -->
+      <div class="gallery-hero" id="galleryHero">
+        <div class="gallery-hero-slide active" style="background-image:url('images/footer_img.jpg');"></div>
+        <div class="gallery-hero-slide" style="background-image:url('images/Morningns.jpg');"></div>
+        <div class="gallery-hero-slide" style="background-image:url('images/Breathwork.jpg');"></div>
+        <div class="gallery-hero-overlay"></div>
+
+        <div class="gallery-hero-content">
+          <span class="section-label">Our Gallery</span>
+          <h2 class="section-title">Moments of<br>Calm &amp; Wellness</h2>
+          <p>Explore beautiful moments, sessions and experiences from our wellness journey.</p>
+          <a href="#galleryGrid" class="btn btn-primary">View All Photos <span>→</span></a>
+        </div>
+
+        <div class="gallery-hero-nav">
+          <button class="gallery-hero-btn" id="galleryPrev" aria-label="Previous slide">‹</button>
+          <button class="gallery-hero-btn" id="galleryNext" aria-label="Next slide">›</button>
+        </div>
+      </div>
+
+      <!-- Filters + grid -->
+      <div class="gallery-body">
+        <div class="gallery-filters" id="galleryFilters">
+          <button class="gallery-filter active" data-filter="all">All</button>
+          <button class="gallery-filter" data-filter="meditation">Meditation</button>
+          <button class="gallery-filter" data-filter="breathwork">Breathwork</button>
+          <button class="gallery-filter" data-filter="healing">Energy Healing</button>
+          <button class="gallery-filter" data-filter="nature">Nature</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryGrid">
+          <figure class="gallery-item" data-cat="meditation nature">
+            <img src="images/footer_img.jpg" alt="Meditation at sunrise on the water" loading="lazy">
+          </figure>
+          <figure class="gallery-item" data-cat="nature">
+            <img src="images/AWARENESS.png" alt="Hand holding a green leaf" loading="lazy">
+          </figure>
+          <figure class="gallery-item" data-cat="healing">
+            <img src="images/RELEASE.png" alt="Singing bowl, crystals and rose petals" loading="lazy">
+          </figure>
+          <figure class="gallery-item" data-cat="breathwork">
+            <img src="images/REGULATION.png" alt="Hands on heart and belly during breathwork" loading="lazy">
+          </figure>
+          <figure class="gallery-item" data-cat="breathwork nature">
+            <img src="images/Morningns.jpg" alt="Morning practice in the golden sunlight" loading="lazy">
+          </figure>
+          <figure class="gallery-item" data-cat="meditation">
+            <img src="images/Breathwork.jpg" alt="Seated meditation indoors" loading="lazy">
+          </figure>
+          <figure class="gallery-item" data-cat="healing">
+            <img src="images/NervousSystem.jpg" alt="Sound healing session with singing bowls" loading="lazy">
+          </figure>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Gallery lightbox -->
+<div class="gallery-lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="gallery-lb-close" id="galleryLbClose" aria-label="Close">✕</button>
+  <button class="gallery-lb-btn gallery-lb-prev" id="galleryLbPrev" aria-label="Previous image">‹</button>
+  <img id="galleryLbImg" src="" alt="">
+  <button class="gallery-lb-btn gallery-lb-next" id="galleryLbNext" aria-label="Next image">›</button>
+</div>
+
 <!-- ═══════════════════════════════════════════ BOOK CTA -->
 <section id="book">
   <div class="book-inner container">
@@ -1138,6 +1212,7 @@
         <a  href="#courses">Courses</a>
         <!-- <a  href="#work">Work With Me</a> -->
         <a  href="#meditation">Meditation</a>
+        <a  href="#gallery">Gallery</a>
         </div>
       </div>
       <div class="footer-col">
@@ -1553,6 +1628,72 @@
   document.getElementById('prevBtn').addEventListener('click', () => { goTo(current - 1); startAuto(); });
   document.getElementById('nextBtn').addEventListener('click', () => { goTo(current + 1); startAuto(); });
   startAuto();
+
+  /* ── Gallery: hero slider ── */
+  const gSlides = document.querySelectorAll('.gallery-hero-slide');
+  let gCurrent = 0, gTimer;
+  function gGoTo(n) {
+    gSlides[gCurrent].classList.remove('active');
+    gCurrent = (n + gSlides.length) % gSlides.length;
+    gSlides[gCurrent].classList.add('active');
+  }
+  function gStartAuto() {
+    clearInterval(gTimer);
+    gTimer = setInterval(() => gGoTo(gCurrent + 1), 6000);
+  }
+  document.getElementById('galleryPrev').addEventListener('click', () => { gGoTo(gCurrent - 1); gStartAuto(); });
+  document.getElementById('galleryNext').addEventListener('click', () => { gGoTo(gCurrent + 1); gStartAuto(); });
+  gStartAuto();
+
+  /* ── Gallery: filters ── */
+  const gItems = [...document.querySelectorAll('.gallery-item')];
+  const gFilters = document.querySelectorAll('.gallery-filter');
+  function gApplyFilter(filter) {
+    const visible = gItems.filter(item => filter === 'all' || item.dataset.cat.split(' ').includes(filter));
+    gItems.forEach(item => {
+      item.classList.toggle('hidden', !visible.includes(item));
+      item.classList.remove('is-feature');
+    });
+    if (visible.length) visible[0].classList.add('is-feature');
+  }
+  gFilters.forEach(btn => btn.addEventListener('click', () => {
+    gFilters.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    gApplyFilter(btn.dataset.filter);
+  }));
+  gApplyFilter('all');
+
+  /* ── Gallery: lightbox ── */
+  const gLightbox = document.getElementById('galleryLightbox');
+  const gLbImg = document.getElementById('galleryLbImg');
+  let gLbIndex = 0;
+  function gVisibleItems() { return gItems.filter(i => !i.classList.contains('hidden')); }
+  function gShowLb(idx) {
+    const list = gVisibleItems();
+    gLbIndex = (idx + list.length) % list.length;
+    const img = list[gLbIndex].querySelector('img');
+    gLbImg.src = img.src;
+    gLbImg.alt = img.alt;
+  }
+  function gCloseLb() {
+    gLightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  gItems.forEach(item => item.addEventListener('click', () => {
+    gShowLb(gVisibleItems().indexOf(item));
+    gLightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }));
+  document.getElementById('galleryLbPrev').addEventListener('click', e => { e.stopPropagation(); gShowLb(gLbIndex - 1); });
+  document.getElementById('galleryLbNext').addEventListener('click', e => { e.stopPropagation(); gShowLb(gLbIndex + 1); });
+  document.getElementById('galleryLbClose').addEventListener('click', gCloseLb);
+  gLightbox.addEventListener('click', e => { if (e.target === gLightbox) gCloseLb(); });
+  document.addEventListener('keydown', e => {
+    if (!gLightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') gCloseLb();
+    if (e.key === 'ArrowLeft') gShowLb(gLbIndex - 1);
+    if (e.key === 'ArrowRight') gShowLb(gLbIndex + 1);
+  });
 
   /* ── Scroll reveal ── */
   const fadeEls = document.querySelectorAll('.fade-up');
